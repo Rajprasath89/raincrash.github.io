@@ -1,9 +1,9 @@
 title:            Bits, Pixels and Atoms
-description:      A jekyll theme. Because I scribble.
+description:      Sricharan Chiruvolu's Blog
 url:              
 signoff:          sricharan
 disqus_shortname: bitspixelsandatoms
-facebook_appid:   # appid for like button, remove from /_includes/share.html if unwanted.
+facebook_appid:   
 google_analytics: 
 
 links:
