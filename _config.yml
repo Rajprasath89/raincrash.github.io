@@ -4,7 +4,7 @@ url:
 signoff:          sricharan
 disqus_shortname: bitspixelsandatoms
 facebook_appid:   
-google_analytics: 
+google_analytics: UA-61456015-1
 
 gems:
   - jekyll-sitemap
