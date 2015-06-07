@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta content='Data Structures For a Primer - QUEUE - Bits, Pixels and Atoms' property='og:title' />
+    <title>Data Structures For a Primer - QUEUE - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/2013/12/15/data-structures-for-a-primer-queue/' property='og:url' />
+  <meta content="Queue, similar to a stack, have restrictions on where you can add and remove elements. If stack has an analogy with a..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/2013/12/15/data-structures-for-a-primer-stack/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/2013/12/26/method-to-bypass-android-pattern-lock/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>15 Dec 2013</div>
+            Data Structures For a Primer - QUEUE
+          </h1>
+          <p>Queue, similar to a stack, have restrictions on where you can add and remove elements. If stack has an analogy with a pile of treys, a queue is similar to a cafeteria line; the first person at the first is served first, followed by the second an so on to the end of the line. New people are added to the line from the back. Thus, this is of a <strong>F</strong>irst <strong>I</strong>n, <strong>F</strong>irst <strong>O</strong>ut (<strong>FIFO</strong>) type.</p>
+
+<p>The following terminology is associated with Queue:</p>
+
+<p><strong>Enqueue </strong>The addition of an element to a Queue<br/>
+<strong>Dequeue</strong> Removing an element from a Queue</p>
+
+<p>Wait a second! The programming of a Queue is not as easy as programming a Stack. If a person leaves a line, everyone in the line must step forward. Now, imagine if only one person could move at a time. So, now every person at the back fills the place left behind by the first. Now imagine that no one can leave or be added to the line until everyone has stepped forward! so,<strong><em> it is difficult to program a queue that is fast.</em></strong><br/>
+<strong><em><br/>
+</em></strong> There are two ways for impliment a queue. First is to just an array and shift all the elements to accomidate enqueues and dequeues.</p>
+
+<p>The slowness of the first method is slow as with many elements, the shifting takes time. The other method is to shift enqueues and dequeues, rather shifting the elements. In the cafeteria line scenario, if the first of the line continually moves backwards as each person leaves the line, then the people don&rsquo;t need to step forward or backwards, which saves time!</p>
+
+<p>This is complicated to program when compared to the first method.Instead of keeping track of just the enqueue point (the &ldquo;end&rdquo;), we also need to keep track of the dequeue point (the &ldquo;front&rdquo;). This all gets even more complicated when we realize that after a bunch of enqueues and dequeues, the line will need to wrap around the end of the array. Think of the cafeteria line. As people enter and leave the line, the line moves farther and farther backwards, and eventually it will circle the entire cafeteria and end up at its original location.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 21:41</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+---
+author: sricharanchiruvolu
+comments: true
+date: 2014-12-13 17:29:35+00:00
+layout: post
+slug: 'World of OpenGL'
+title: World of OpenGL
+wordpress_id: 163
+disqus: y
+categories:
+- opengl
+tags:
+- computer graphics
+- graphics
+- opengl
+---
+
+### Getting into the world of OpenGL
+
+
+
+
+It has been around three weeks since I planned to learn computer graphics with OpenGL. I couldn’t make much progress due to college work. Finding proper resources is very difficult. The available material is old and most of them use deprecated function calls. The Red Book and the Blue Book are really good but they are just for reference. I searched for proper references in my college library and choose this book “Computer Graphics — Using OpenGL, Second Edition” by F. S. Hill, Jr. It’s the book I need as it explains the concepts of computer graphics in OpenGL perspective.
+
+
+
+
+Choosing a supporting library had also been very difficult. GLUT is widely used but it’s too old. I had to learn both GLUT and GLFW for creating windows and defining OpenGL context.
+
+
+
+
+To save the essence of open source software, I choose not to use windows, so I had to setup my developing environment in Linux. I dual booted my PC with Ubuntu 14.04. Using linux for around three years now, it didn’t take a lot of time configuring it for OpenGL development.
+
+
+
+
+![](https://d262ilb51hltx0.cloudfront.net/max/800/1*G9dZAUy6teWvFfrUJIC7fQ.png)
+
+
+
+
+Sierpinski Triangles in 3D — Basic OpenGL Points implementation
+
+
+
+
+My holidays started three days ago. I made a [blog](http://sricharanized.wordpress.com/) specially to write my OpenGL progress. This would help me keep track on what I am doing. I have also been uploading my programs in [github](https://github.com/raincrash/opengl_learning).
+
+
+
+
+![](https://d262ilb51hltx0.cloudfront.net/max/800/1*1JIRUgID_8G9EuHoCNB6mg.png)
+
+
+
+
+Phases of the moon — Animation in OpenGL
+
+
+
+
+Finally, after a serious start three days ago, I have written few basic programs like Phases of moon — animation, a random rotating cube and Sierpinski triangle in both 3D and 2D e.t.c. I hope I will be proficient in OpenGL by the end of the month.

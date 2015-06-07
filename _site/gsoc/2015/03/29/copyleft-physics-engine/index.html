@@ -1,0 +1,289 @@
+<html>
+  <head>
+    <meta content='Copyleftgames - Physics Engine - Bits, Pixels and Atoms' property='og:title' />
+    <title>Copyleftgames - Physics Engine - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/gsoc/2015/03/29/copyleft-physics-engine/' property='og:url' />
+  <meta content="# A Real-time Physics Engine for Pysoy*Proposal for Google Summer of Code - 2015   CopyLeftGames.org*# *Personal deta..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/os/2014/12/15/writing-kernel-modules-lesson-five-multiple-file-modules-argument-passing/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/gsoc/2015/03/30/copyleft-deferred-renderer/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>29 Mar 2015</div>
+            Copyleftgames - Physics Engine
+          </h1>
+          <h1>A Real-time Physics Engine for Pysoy</h1>
+
+<p><em>Proposal for Google Summer of Code - 2015   CopyLeftGames.org</em></p>
+
+<h1><em>Personal details</em></h1>
+
+<p><strong>Name:</strong> Sricharan Chiruvolu ( IRC - raincrash / sricharanized )</p>
+
+<p><strong>Email:</strong> sricharanized(at)gmail(dot)com</p>
+
+<p><strong>Degree:</strong> B.Tech, Computer Science and Engineering</p>
+
+<p><strong>College/ Univ:</strong> Amrita School of Engineering, Bengaluru, India</p>
+
+<h1>SYNOPSIS</h1>
+
+<p>Will be replacing the existing physics engine (ODE) with our own.</p>
+
+<p>Modified components would include the joints, bodies, fields, and most importantly, collisions between objects.
+Collision primitives planning to support are sphere, box and plane.</p>
+
+<p>We will be addressing the following contact cases
+- Point-point contacts
+- edge-edge contacts
+- edge-face contacts
+- face-face contacts</p>
+
+<p>We will be addressing the following primitive collisions with seperate algorithms:
+- Two spheres colliding
+- Sphere and plane colliding
+- Box and plane colliding
+- Sphere and box colliding
+- Two boxes colliding</p>
+
+<p>Most of the other higher geometric collisions can be based on the above.</p>
+
+<h1><em>Motivation</em></h1>
+
+<p>The proposed project aims to Improve the Pysoy&rsquo;s physics system.</p>
+
+<p>Pysoy is currently dependent on ODE (Open Dynamics Engine) for dynamic simulation. ODE is a great resource, but it doesn&rsquo;t meet the requirements that pysoy needs. Pysoy is proposed to run smoothly on both mobile and web and there is a need for a physics engine that is minimal, stable and more importantly, focussed on speed over accuracy. Pysoy doesn&rsquo;t require a high-precision engine as there is a need for using simplified calculations and decreased accuracy to compute in time for the game to respond at an appropriate rate for gameplay. Higher precision reduces the positional/force errors, but at the cost do greater CPU power needed for the calculations, which is not desirable in our case.</p>
+
+<p>Thus, there is a need to replace the existing physics engine with our own. Modified components would include the joints, bodies, fields, and most importantly, collisions between objects.</p>
+
+<h1><em>Project Proposal</em></h1>
+
+<h2>Implementation plan</h2>
+
+<p>Physics Engines, as the name implies are software that can simulate physics on a computer. These most commonly include rigid body dynamics such as simple convex primitives (boxes, spheres, cylinders, etc) colliding with each other and reacting to the resulting forces, but not deforming in the process, i.e. they maintain their shape and size and thus volume throughout the whole simulation. For reasons of computational complexity, the soft dody dynamics are used less-often, at least in real time physics simulations, where speed is of paramount importance.</p>
+
+<p>On the higher level, our physics engine cycle does the following:</p>
+
+<ul>
+<li><p>Simulation: The engine goes through every object we are simulating, moves, rotates e.t.c and updates
+everything.</p></li>
+<li><p>Detecting Collisions: All the geometries in the scene are tested against each other to see which ones collide and a list of colliding objects with their point of contacts is generated. Goes through every object in the simulation and basically, it creates a list of every pair of objects that has collided as a result of simulation. We are not trying to decide what should happen to these objects after collision in this stage.</p></li>
+<li><p>Dynamically Responding to the collisions: Going through the list of all the pairs of colliding objects and decide how it should update them, how the collisions are to be handled e.t.c.
+The cycle now starts again with simulation and so on.</p></li>
+</ul>
+
+
+<h2>Detecting Collisions</h2>
+
+<p>This would be done in two phases:</p>
+
+<ul>
+<li><p>A quick test to get a list of all possible colliding pairs can be done instead of directly calculating the contact points for each pair of bodies. This can be achieved by bounding volume principles.</p></li>
+<li><p>Once the above testing is done and we have detected the collisions between the bounding volumes, we are now in a position to carry out the full collision detection. Typically, we are comparing each geomentry with other in this stage. Different combinations of primitive collisions (shape vs shape) are to be implimented.
+Various optimization methods can be incorporated while detecting collisions:
+Instead of using the brute force O(n2) method of testing each geometry against each other, techniques such as spatial coherence (where the proximity of objects are found by diving­ up the space) and/or temporal coherence (where the fact that the results from one time step are usually closely related to the results from the previous timestep) can be done.</p></li>
+</ul>
+
+
+<p>In addition, we can employ hierarchical bounding volumes, i.e. bounding volumes for each part of a larger geometry where we progressively test bounding volumes lower in the hierarchy upon successful collision tests.
+Quadtrees might be an even more effective first-pass in collision detection algorithm. Analysing the difference between using quadtrees and using a simple fixed grid will be done prior to the implimentation.</p>
+
+<p>Collision primitives planning to support: sphere, box and plane.</p>
+
+<h2>Generating contacts, the joints and fields</h2>
+
+<p>Contact generation is more complex than single-intersection collision detection and takes more processor time to complete.</p>
+
+<p>Rather, we will have a two-stage process of contact generation: a fine collision detection step to determine whether there are contacts to generate and then a contact generation step to work out the contacts that are present. We need to make sure that fine collision detection runs as fast as possible. We can dramatically improve the speed by performing collision detection against a simplified geometry rather than the full-resolution rendering geometry.</p>
+
+<p>The problem is generating a collision geometry. Contact generation is an overhead. If this chunky geometry consists of certain geometric primitives—namely, spheres, boxes, planes, and capsules, then the collision detection algorithms can be simpler than for general-purpose meshes. How exactly such a geometry is generated is the question. I need to do a lot of research on this as there are very few resources I managed to find.
+Once such mechanism is established, we can manage various permutations of primitives. The simplest shape on which to perform collision detection and contact generation on is the sphere. Despite being fast, however, spheres aren’t always terribly useful. Boxes are also relatively quick to process and can be used in more situations. What we also need to consider is the collision of objects with the background level geometry. Most commonly this means collisions with the ground or some other plane (walls can typically be represented as planes too). To support these, we’ll also consider collisions between primitives and planes.</p>
+
+<p>The contact data we will be looking for are the collision point and the collsion normal (stored as a data structure).With this, we will be addressing how each contact case and there parameters. This includes:</p>
+
+<ul>
+<li>Point-point contacts</li>
+<li>edge-edge contacts</li>
+<li>edge-face contacts</li>
+<li>face-face contacts</li>
+</ul>
+
+
+<p>Finally, we will be addressing the following primitive collisions with seperate algorithms:</p>
+
+<ul>
+<li>Two spheres colliding</li>
+<li>Sphere and plane colliding</li>
+<li>Box and plane colliding</li>
+<li>Sphere and box colliding</li>
+<li>Two boxes colliding</li>
+</ul>
+
+
+<p>Most of the other higher geometric collisions can be based on the above.</p>
+
+<h2>Responding to the collisions</h2>
+
+<p>The collision detection stage returns the collision pairs (the constraints (contacts, joints) and world transforms) that are now solved in this step.</p>
+
+<p>This would be done in three phases:</p>
+
+<ul>
+<li>Mapping the given collision pairs into LCP (Linear complementary problem)</li>
+<li>Solving the LCP equations. Implementing numerical integration techniques: Euler’s method (for conceptual understanding), velocity verlet (for most simple games/kinematics), midpoint method (for most simple applications/general forces), Runge-Kutta methods (for advanced and accurate simulation).</li>
+<li>Map back the calculated results to the scene. This involves the calcuated force, integrate them to get velocity and new positions.</li>
+</ul>
+
+
+<p>Understanding and implementing various algorithms like separating axis theorem GJK algorithm will optimise the calculation overload both in detecting collision stage and responding to collision stage. Further research will be done prior to the implimentation.</p>
+
+<p>Contact resolution is a way in which touching objects are processed. We won&rsquo;t be using “Jacobian-based” approach, a physically realistic way to calculate the exact interaction between different contacts and calculate an overall set of effects to apply. It suffers from being very time consuming, complex math is involved, solving the equations require “millions” of calculations.
+Instead, we will be calculating a new set of equations based on the contacts and constraits between objects. Rather than use Newton’s laws of motion, we can create our own set of laws for just the specific configuration of objects we are dealing with.</p>
+
+<h2>References and cool links</h2>
+
+<p>I found the following references useful, although not directly appropriate for our use.</p>
+
+<ul>
+<li><a href="http://www-cs-students.stanford.edu/~eparker/files/PhysicsEngine/">Rigid Body Physics Engine</a></li>
+<li><a href="http://www.cs.ubc.ca/~rbridson/docs/rigid_bodies.pdf">Nonconvex Rigid Bodies with Stacking</a></li>
+<li>And ofcourse, <a href="https://sourceforge.net/projects/opende/files/">ODE</a> codebase.</li>
+</ul>
+
+
+<h2>Beyond GsoC</h2>
+
+<p>I will be contributing to the development of the organization, especially with adding WebGL and HTML (plugin free) client support. There will always be something that needs improvement in a constantly evolving organization.</p>
+
+<p>Also, the physics engine would have a lot of improvizations that need to be addressed. Including,
+Soft body physics support:  The scope of soft body dynamics is quite broad, ranging form bouncing, bending and squishing, including simulation of soft organic materials such as muscle, fat, hair and vegetation, as well as other deformable materials such as clothing and fabric. This is really a broad concept. But, once a physics engine is wireframed, the softbody support can get into it pretty easily.
+Maybe, boyancy too.</p>
+
+<p>Handling wheeled, bipedal moments seperately:  Handling bipedal characters separately would be a great benefit for future game devs. There would be a collision joint that is unique for bipedal characters rather than depending of the native physics engine.</p>
+
+<p>We can work on this as a non-deadline based project or chop them into various GCI tasks.</p>
+
+<h1>Availability</h1>
+
+<p>I’m pretty sure that i’ll be able to devote about 40 - 50 hours every week to the project during the GSoC coding period.</p>
+
+<h1>Issues/ Shortcomings</h1>
+
+<p>As such, the limitation of any physics engine is the approximation of the positions and forces acting upon an object. These approximations can sometimes lead to drastic changes in the behaviour of the bodies.
+This issue can be compromised if the engine can deliver  “realistic enough” results without consuming greater CPU powers needed for the calculations.</p>
+
+<h1>About me</h1>
+
+<ul>
+<li><a href="/index.html">About</a></li>
+</ul>
+
+
+<p>I am planning to blog my progress atleast once in two weeks. I think this is a good way to post progress on my project.</p>
+
+<p>I am fairly new to GSoC as this will be my first experience, but I am looking forward to build this amazing application with you and begin my journey in Open Source!</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 21:31</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

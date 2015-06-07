@@ -1,0 +1,133 @@
+<html>
+  <head>
+    <meta content='Writing Kernel Modules 101:: What modprobe does? - Bits, Pixels and Atoms' property='og:title' />
+    <title>Writing Kernel Modules 101:: What modprobe does? - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/os/2014/12/13/writing-kernel-modules-101-lesson-three-what-modprobe-does/' property='og:url' />
+  <meta content="**What does modprobe do?**As we have discussed already, modprobe command loads or removes a loadable kernel module. I..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/os/2014/12/13/writing-kernel-modules-101-lesson-two/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/opengl/2014/12/13/163/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>13 Dec 2014</div>
+            Writing Kernel Modules 101:: What modprobe does?
+          </h1>
+          <p><strong>What does modprobe do?</strong></p>
+
+<p>As we have discussed already, modprobe command loads or removes a loadable kernel module. It was previously used as <code>'modutils'</code> and is now included in <em>module-init-tools</em> package in newer linux kernel versions. There are various similar commands like <code>insmod</code> and <code>rmmode</code> but <code>modprobe</code> dominates them all due to various reasons.</p>
+
+<p>The <code>modprobe</code> offers the following features:</p>
+
+<ul>
+<li><p>an ability to make more intuitive decisions about which modules to load</p></li>
+<li><p> an awareness of module dependencies, so that when requested to load a module, modprobe adds other required modules first</p></li>
+<li><p> the resolution of recursive module dependencies as required</p></li>
+</ul>
+
+
+<p>This makes modprobe unique and essential. The <em>modprobe</em> program also has more configuration features than other similar utilities. It is possible to define module aliases allowing for some automatic loading of modules. If you are interested to know more, read the man pages of module-init-tools and see for yourself what&rsquo;s really going on.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 21:15</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

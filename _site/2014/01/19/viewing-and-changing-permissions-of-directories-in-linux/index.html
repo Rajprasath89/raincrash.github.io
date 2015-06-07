@@ -1,0 +1,159 @@
+<html>
+  <head>
+    <meta content='Viewing and Changing Permissions of Directories in Linux - Bits, Pixels and Atoms' property='og:title' />
+    <title>Viewing and Changing Permissions of Directories in Linux - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/2014/01/19/viewing-and-changing-permissions-of-directories-in-linux/' property='og:url' />
+  <meta content="To check for permissions of a directory in linux, use the following command            $ ls -ld directory  To set per..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/2014/01/19/manual-mounting-of-usb-drives-in-linux/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/2014/06/30/running-our-own-run-commands-in-windows/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>19 Jan 2014</div>
+            Viewing and Changing Permissions of Directories in Linux
+          </h1>
+          <p>To check for permissions of a directory in linux, use the following command</p>
+
+<pre><code>&lt;code&gt;$ ls -ld directory&lt;/code&gt;
+</code></pre>
+
+<p>To set permissions for various directories in linux, use chmod.</p>
+
+<p>The &ldquo;chmod&rdquo; is a Linux command that will let you SET PERMISSIONS i.e. assign who can read/write/execute on a  file.</p>
+
+<p>When using chmod, you need to be aware that there are three types  of Linux users that you are setting permissions for. Therefore, when  setting permissions, you are assigning them for &ldquo;yourself&rdquo;, &ldquo;your group&rdquo; and &ldquo;everyone else&rdquo; in the  world. These users are technically know as:</p>
+
+<p>Owner<br/>
+Group<br/>
+World</p>
+
+<p>Therefore, when setting permissions on a file, you will want to assign all three levels of permissions, and not just one user.</p>
+
+<p>Think of the chmod command actually having the following syntax&hellip;</p>
+
+<p><strong><em>chmod owner group world FileName</em></strong></p>
+
+<p>There are three types of permissions that Linux allows for each file.</p>
+
+<p>read<br/>
+write<br/>
+execute</p>
+
+<p>You will need to convert the word read or write or execute into the numeric equivalent (octal) based on the table below.</p>
+
+<p>4 read &reg;<br/>
+2 write (w)<br/>
+1 execute (x)</p>
+
+<p>For example,</p>
+
+<p>  <strong><em>chmod 400 mydoc.txt</em></strong> read by owner<br/>
+<strong>chmod 100 mydoc.txt</strong> execute by owner</p>
+
+<p>Also,  You need to add up the numbers to get other types of permissions,</p>
+
+<p>7 = 4+2+1 (read/write/execute)<br/>
+6 = 4+2 (read/write)<br/>
+5 = 4+1 (read/execute)<br/>
+4 = 4 (read)<br/>
+3 = 2+1 (write/execute)<br/>
+2 = 2 (write)<br/>
+1 = 1 (execute)</p>
+
+<p>For example,</p>
+
+<p><em><strong>chmod 666 mydoc.txt</strong></em> read/write by anybody! <br/>
+<em><strong>chmod 755 mydoc.txt</strong></em> rwx for owner, rx for group and rx for the world<br/>
+<em><strong>chmod 777 mydoc.txt</strong></em> read, write, execute for all!</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 12:18</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

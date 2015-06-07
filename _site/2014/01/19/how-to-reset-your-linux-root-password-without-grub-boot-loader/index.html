@@ -1,0 +1,126 @@
+<html>
+  <head>
+    <meta content='How to Reset your Linux Root Password without GRUB boot loader - Bits, Pixels and Atoms' property='og:title' />
+    <title>How to Reset your Linux Root Password without GRUB boot loader - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/2014/01/19/how-to-reset-your-linux-root-password-without-grub-boot-loader/' property='og:url' />
+  <meta content="If your Linux doesn't have GNU GRUB boot loader or you cannot access it as it is password protected, you can use this..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/2014/01/19/how-to-reset-your-linux-root-password/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/2014/01/19/reset-the-password-of-mysql-in-linux/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>19 Jan 2014</div>
+            How to Reset your Linux Root Password without GRUB boot loader
+          </h1>
+          <p>If your Linux doesn&rsquo;t have GNU GRUB boot loader or you cannot access it as it is password protected, you can use this method to change your root (superuser) password.</p>
+
+<p> All you need is a live CD of any linux of your choice. Just follow the steps below to achieve this:</p>
+
+<ul>
+<li>Boot from the Live CD.</li>
+<li>Choose an option that states &lsquo;Boot Linux without making changes to your computer&rsquo; or something of that sort.</li>
+<li>When the system boots up, open the terminal.</li>
+<li>Type <strong>sudo fdisk -l</strong>. In the output we are concerned to  know which partition Linux is installed on and what name the hard disk  is using. </li>
+<li>In my case it is <strong>/dev/sda1</strong> is the required partition. If you are sure about the partition you can skip this step.</li>
+<li>Next we need to mount the Linux partition. Create a directory to act as mount point for the partition. Use ‘<strong>sudo mkdir /media/linx_part</strong>‘.</li>
+<li> Mount the linux partition using the command ‘<strong>sudo mount /dev/sda1 /media/linx_part</strong>‘.</li>
+<li>Change Root to the mount directory – ‘<strong>sudo chroot /media/sda1</strong>‘</li>
+<li>Type <strong>passwd</strong> and then enter the new password to change the password.</li>
+<li>Type <strong>reboot</strong> to restart the system.
+To prevent others from hacking into your system, all you need to do is to setup a password to access your GNU GRUB menu and using any Linux Disk Encryption Tool to encrypt file system.</li>
+</ul>
+
+
+<p>Use &ldquo;<strong>loop-AES</strong>&rdquo; to encrypt disk partitions, removable media, swap space and other devices. This will prevent others to hack into your Linux Computer.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 10:31</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

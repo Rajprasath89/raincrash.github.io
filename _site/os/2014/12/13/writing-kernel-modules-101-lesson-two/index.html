@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <meta content='Writing Kernel Modules 101: : Lesson two: Basic Commands - Bits, Pixels and Atoms' property='og:title' />
+    <title>Writing Kernel Modules 101: : Lesson two: Basic Commands - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/os/2014/12/13/writing-kernel-modules-101-lesson-two/' property='og:url' />
+  <meta content="**Some essential commands before getting started into Kernel Development**	    1. **lsmod **- In linux systems, `lsmo..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/os/2014/12/13/writing-kernel-modules-101-one-what-is-a-kernel-module/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/os/2014/12/13/writing-kernel-modules-101-lesson-three-what-modprobe-does/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>13 Dec 2014</div>
+            Writing Kernel Modules 101: : Lesson two: Basic Commands
+          </h1>
+          <p><strong>Some essential commands before getting started into Kernel Development</strong></p>
+
+<pre><code>1. **lsmod **- In linux systems, `lsmod `prints the contents of the `/procs/modules` file. It shows the currently loaded kernel modules. Here, '_module' _denotes the name of the loaded module. '_size' _denotes the size of the module, not the memory used by it. '_Used by' _provides the list of refering modules and their count. Also, If the module controls its own unloading via a can_unload routine then the use count displayed by lsmod is always -1, irrespective of the real use count
+
+
+2. **modinfo **- It is the command used to know the information associated with a certain module. Its syntax is
+
+
+modinfo module_name
+
+
+
+
+
+3. **systool **- `systool` is used for various purposes. We will limit ourselves to list the options that are set for a loaded module. This is how it's done
+
+
+systool -v -m module_name
+
+
+
+
+
+4. **modprobe **- `modprobe` is a Linux program originally written by Rusty Russell and used to add a loadable kernel module (LKM) to the Linux kernel or to remove a LKM from the kernel. It can also be used to display the comprehensive configuration of all the modules:
+
+
+modprobe -c | less
+</code></pre>
+
+<p>To display the configuration of a particular module:</p>
+
+<pre><code>modprobe -c | grep module_name
+</code></pre>
+
+<p>Also, it can be used to list the dependencies of a module, including the module itself:</p>
+
+<pre><code> modprobe --show-depends module_name
+</code></pre>
+
+<p>Try these commands once. If you couldn&rsquo;t understand what is printed on the console at this moment, it&rsquo;s okay. We will be discussing all of them soon. So Stay Tuned.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 20:55</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

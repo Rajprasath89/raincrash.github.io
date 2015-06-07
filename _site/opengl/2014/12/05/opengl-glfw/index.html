@@ -1,0 +1,208 @@
+<html>
+  <head>
+    <meta content='Initializing context in opengl with GLFW - Bits, Pixels and Atoms' property='og:title' />
+    <title>Initializing context in opengl with GLFW - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/opengl/2014/12/05/opengl-glfw/' property='og:url' />
+  <meta content="Initializing OpenGL is done by adding context, the state machine that stores all the date that is required to render ..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/2014/06/30/running-our-own-run-commands-in-windows/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/opengl/2014/12/05/compilng-and-linking-glfw-on-linux/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>05 Dec 2014</div>
+            Initializing context in opengl with GLFW
+          </h1>
+          <p>Initializing OpenGL is done by adding context, the state machine that stores all the date that is required to render your application. When you close your application, the context is destroyed and everything is cleaned up.</p>
+
+<p>OpenGL specification doesn&rsquo;t include creating a window, or defining a context. Hence, we use other libraries to abstract this process. This helps us to make cross-platform applications and save the real essence of OpenGL.</p>
+
+<p>The coding pattern these libraries follow is similar. We begin by specifying the properties of the window. The application will then initiate the event loop. Event handling such as mouse clicks, updating rendering states and drawing.</p>
+
+<p>Here&rsquo;s how it looks</p>
+
+<pre><code>#include &lt;RequiredHeaders&gt;
+
+int main(){
+
+   createWindow();
+   createContext();
+
+ while(windowIsOpen){
+   while (event == newEvent()){
+     handleThatEvent(event);
+   }
+
+   updateScene();
+
+   drawRequiedGraphics();
+   presentGraphics();
+ }
+   return 0;
+}
+</code></pre>
+
+<p>The <em>back buffer  </em>stores the results while rendering a scene to make sure user only sees the final state. The <code>presentGraphics();</code> will copy the result in the back buffer and make it visible to the viewer by placing the result in the <em>front buffer</em>.</p>
+
+<p>GLFW helps us to inform the drivers that our application is ready for the future and does not depend on the deprecated functions. Supporting resizable windows requires the resources to be reloaded and buffers need to be recreated to adapt the new size.</p>
+
+<p>Coming to what libraries to be used along with OpenGL, we do have a lot of options: <a href="https://www.opengl.org/wiki/Related_toolkits_and_APIs.">https://www.opengl.org/wiki/Related_toolkits_and_APIs.</a></p>
+
+<p>We will be using GLFW for window and context creation as well as handling inputs. I choose GLFW as it gives more control to OpenGL that other libraries trying hard to be an all-in-one solution and defining there own drawing functions. GLFW gives you a window and OpenGL context with just two function calls.</p>
+
+<p><strong>Building</strong></p>
+
+<ul>
+<li><p>Download the necessary library files: <a href="http://www.glfw.org/download.html">http://www.glfw.org/download.html</a>. I will be using version 3.0.4. You can also compile the libraries yourself.</p></li>
+<li><p>Add the <code>lib</code> folder in the appropriate library path and link it with <code>GLFW</code>.</p></li>
+<li><p>Add <code>include</code> folder to your library path.</p></li>
+</ul>
+
+
+<p><strong>Using GLFW</strong></p>
+
+<p>Include the GLFW header in your program</p>
+
+<pre><code>#include &lt;GLFW/glfw3.h&gt; ;
+
+int main(){
+
+}
+</code></pre>
+
+<p>You need to initialize GLFW when the program starts and ask it to clean-up at the end. <code>glfwInit();</code> and <code>glfwTerminate();</code> with do the work respectively.
+Before we create a window, we need to do some configuration.</p>
+
+<pre><code>glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
+GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL", nullptr, nullptr); // Windowed
+GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL", glfwGetPrimaryMonitor(), nullptr); // Fullscreen
+</code></pre>
+
+<p>The above code specifies that it requires GLFW version 3.2 at the least and also that we want a context that only supports the new core functionality. Width, height and window title also needs to be aptly specified. The configuration allows you to specify an existing OpenGL context to share resources like textures with. It also include a function to specify additional requirements for a window. We will address all of them as we dive deep.</p>
+
+<p>Now make the context active:</p>
+
+<pre><code>glfwMakeContextCurrent(window);
+</code></pre>
+
+<p>Now you are supposed to create an event loop. GLFW uses a <em>closed </em>event loop that is you only handle events when you need to.</p>
+
+<pre><code>while(!glfwWindowShouldClose(window))
+{
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+    ...
+}
+</code></pre>
+
+<p>Note that <code>glfwSwapBuffers(window)</code> and <code>glfwPollEvents()</code> are two required function calls which swaps the front and back buffers after you have finished drawing and retrives window events respectively.
+If you are making fullscreen applications, you can handle an escape key to return to the desktop.</p>
+
+<pre><code>if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    glfwSetWindowShouldClose(window, GL_TRUE);
+</code></pre>
+
+<p>You have now initialized a window with OpenGL context.</p>
+
+<p>Before we procced, have a glance at the GLFW documentation:<a href="http://www.glfw.org/docs/latest/quick.html"> http://www.glfw.org/docs/latest/quick.html</a>.</p>
+
+<p>Here&rsquo;s the code. <a href="https://github.com/raincrash/sricharanizedBlogCode/blob/master/init-glfw.cpp"> https://github.com/raincrash/sricharanizedBlogCode/blob/master/init-glfw.cpp</a></p>
+
+<p>We will soon be drawing stuff in this window.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 10:58</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

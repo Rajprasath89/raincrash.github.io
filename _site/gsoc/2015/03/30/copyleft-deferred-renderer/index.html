@@ -1,0 +1,281 @@
+<html>
+  <head>
+    <meta content='Copyleftgames - Deferred Renderer - Bits, Pixels and Atoms' property='og:title' />
+    <title>Copyleftgames - Deferred Renderer - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/gsoc/2015/03/30/copyleft-deferred-renderer/' property='og:url' />
+  <meta content="# Deferred Rendering pipeline for Pysoy*Proposal for Google Summer of Code - 2015   CopyLeftGames.org*# *Personal det..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/gsoc/2015/03/29/copyleft-physics-engine/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/2015/04/17/source-code-management-using-git/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>30 Mar 2015</div>
+            Copyleftgames - Deferred Renderer
+          </h1>
+          <h1>Deferred Rendering pipeline for Pysoy</h1>
+
+<p><em>Proposal for Google Summer of Code - 2015   CopyLeftGames.org</em></p>
+
+<h1><em>Personal details</em></h1>
+
+<p><strong>Name:</strong> Sricharan Chiruvolu ( IRC - raincrash / sricharanized )</p>
+
+<p><strong>Email:</strong> sricharanized(at)gmail(dot)com</p>
+
+<p><strong>Degree:</strong> B.Tech, Computer Science and Engineering</p>
+
+<p><strong>College/ Univ:</strong> Amrita School of Engineering, Bengaluru, India</p>
+
+<h1>SYNOPSIS</h1>
+
+<p>Classing rendering (also called forward rendering) can, in the worst case, require num_objects * num_lights batches to render a scene. Deferred shading changes that to num_objects + num_lights, which can often be a lot less. We can thus achieve O(1) depth complexity for lighting. Memory is no longer an issue. So, pysoy can migrate to a deferred renderer.</p>
+
+<p>Aim to create a deferred rendering pipeline that is as unobtrusive as possible – we do not want the users of the engine to have to use it differently because of the way that its rendered. So, we want an engine that can:</p>
+
+<ul>
+<li>Interact with the game engine in the same way that the forward renderer does.</li>
+<li>The pipeline switch should still be as flexible as forward rendering.</li>
+</ul>
+
+
+<p>Working on optimization techniques including Stencil culling algorithm for rendering deferred lights and scissor rectangles. Multiple Render Targets (MRT) capability.</p>
+
+<p>Compactability of adding some advanced post-filters without another full scene render.</p>
+
+<p>The Deferred rendering architecture will include the following stages:
+- Geometry stage 
+- Lighting stage 
+- Post-processing stage
+- View stage</p>
+
+<h1><em>Motivation</em></h1>
+
+<p>In a standard forward rendering pipeline, the lighting calculations have to be performed on every vertex and on every fragment in the visible scene, for every light in the scene. The expensive lighting calculations have to execute for each visible fragment of every polygon on the screen, regardless if it overlaps or is hidden by another polygon&rsquo;s fragments.</p>
+
+<p>Also, many of the fragments will never make it to the screen because they were removed with depth testing, and thus the lighting calculation was wasted on them.</p>
+
+<p>Classing rendering (also called forward rendering) can, in the worst case, require num_objects * num_lights batches to render a scene. Deferred shading changes that to num_objects + num_lights, which can often be a lot less. We can thus achieve O(1) depth complexity for lighting.</p>
+
+<p>If we migrate to deferred rendering pipeline we can easily extend the deferred renderer to calculate light volume mapping, extend to various post-effect schemes (new post-processing effects are easily achievable using the G-Buffer as input. If  we wanted to perform these effects without deferred shading, we would&rsquo;ve had to render the whole scene again) e.t.c.</p>
+
+<h1><em>Project Proposal</em></h1>
+
+<h2>Implementation plan</h2>
+
+<p>Refactoring is the key. We will have to create a deferred rendering pipeline that is as unobtrusive as possible – we do not want the users of the engine to have to use it differently because of the way that its rendered. So, we want an engine that can:</p>
+
+<ol>
+<li>Interact with the game engine in the same way that the forward renderer does.</li>
+<li>The pipeline switch should still be as flexible as forward rendering.</li>
+</ol>
+
+
+<p>The second issue is the optimization. We need to make sure G-Buffer pass is cheap. There are a lot of optimization methods that can be implemented, clipping, occlusion query, stencil cull, etc. We will be working on using Stencil culling algorithm for rendering deferred lights.</p>
+
+<p>In the beginning, all of the objects render their &ldquo;lighting related info&rdquo; to a texture, the G-Buffer. This means their colours, normals, depths and any other info that might be relevant to calculating their final colour.</p>
+
+<p>Then, the lights in the scene are rendered as geometry (sphere for point light, cone for spotlight and full screen quad for directional light), and they use the G-buffer to calculate the colour contribution of that light to that pixel.</p>
+
+<p>In order to write to all its buffers, it would require rendering one pass per buffer. However, if the current graphics card supports Multiple Render Targets (MRT) capability, it is possible to write to all buffers in a single pass. We won&rsquo;t render the scene straight to the back buffer; instead we render everything into a bunch of textures using a multiple render target (MRT). With MRTs we can render into different textures with a single call. This will avoid to transform the vertices more than once boosting our performance.</p>
+
+<h2>Deferred Rendering</h2>
+
+<p>We will have four distinct stages in deferred shading: geometry stage, lighting stage, post-processing stage and final stage.</p>
+
+<p><strong>We will first implement a G-Buffer.</strong></p>
+
+<p><strong>Geometry stage</strong></p>
+
+<p>We will make the G-Buffer as the current render target. Once that the G-buffer is ready to receive data, the scene will be rendered. Firstly, we update the G-buffer&rsquo;s depth buffer. Next, material and geometric information of the scene are sent and a fragment shader is responsible for filling the rest of the G-buffer&rsquo;s data.</p>
+
+<p>We have to postpone the transparent objects at this stage. An inspect pass will decide that the object is transparent, we will not add an auto-generated pass to the GBuffer, but instead copy it to render it regularly later (in final stage).</p>
+
+<p>Another way of handling transparent objects for cheap lighting is:  <a href="http://www.john-chapman.net/content.php?id=13">this</a> . We can implement this idea as it is.</p>
+
+<p><strong>What data is passed to the G-Buffer</strong></p>
+
+<p>The four textures generated by the material pass would include: (a) normal, (b) diffuse, &copy; specular and (d) encoded depth as color.Choosing a texture format is not a trivial decision, and has quite a big impact on performance. Further research will be done prior implementation.</p>
+
+<p><strong>Lighting stage</strong></p>
+
+<p>The output of the geometry stage is the G-Buffer contents. They are the normal, diffuse, spcular and depth maps and will be the input for our lighting pass shader together with per light related information like position, color and radius.</p>
+
+<p>We now have a prepared G-buffer with all the intermediate data we need to light the scene. Now, we will render each light to the scene, calculating its contribution to the final image.</p>
+
+<p>When using deferred shading we do not need to know what geometry is illuminated by what light and could just process all lights we find visible to the viewer. While we traverse the scene for visible geometry we simply store the lights we find on the way (so lights do not need to know which geometry they will influence).</p>
+
+<p>We will use view culling applied to the light volumes and some type of occlusion culling to try to reduce the number of lights we need to render.</p>
+
+<p>We will also be using <a href="http://kayru.org/articles/deferred-stencil/">Stencil culling algorithm</a> for rendering deferred lights.</p>
+
+<p><strong>Post-processing stage</strong></p>
+
+<p>Another advantage of deferred rendering, is that some advanced post-filters require full-scene renders to get intermediate information about the scene and use it. If the G-Buffer contains this information, we can apply these effects without another full scene render.</p>
+
+<p>We will make sure that it is easy to pass information (such as textures) from different render sequences to each other.</p>
+
+<p><strong>Final Stage</strong></p>
+
+<p>The final image is shown; swap the buffers and show the scene. This might scale the resulting image to fit the target view window dimensions as the buffers used for deferred shading can have a different resolution than the final screen resolution.</p>
+
+<p>At this stage, we can take care of the transparent objects, as mentioned <a href="http://www.john-chapman.net/content.php?id=13">here</a>.</p>
+
+<p>Thus, a new rendering pipeline is developed.</p>
+
+<h3>References and cool links</h3>
+
+<p>I found the following references useful, although some not directly appropriate for our use.</p>
+
+<ul>
+<li><a href="https://hal.inria.fr/inria-00480869/document">Deferred Rendering Architecture</a></li>
+<li><a href="http://http.developer.nvidia.com/GPUGems3/gpugems3_ch19.html">GPU Gems - Nvidia</a></li>
+<li><a href="http://www.gamedev.net/page/resources/_/technical/graphics-programming-and-theory/deferred-rendering-demystified-r2746">Deferred Rendering Demystified</a></li>
+<li><a href="http://www.john-chapman.net/content.php?id=13">Transparency - A</a></li>
+<li><a href="http://techblog.floorplanner.com/rendering-transparency-in-a-deferred-pipeline/">Transparency - B</a></li>
+</ul>
+
+
+<p><strong>Beyond GsoC</strong></p>
+
+<p>Once such deferred renderer is developed, it can be extended to support:</p>
+
+<ul>
+<li>Shadow mapping</li>
+<li>Light volume clipping</li>
+<li>Add new post-effects such as SSAO using the post-effect system</li>
+</ul>
+
+
+<p>I will also be working on transition of ODE-based to a new physics engine.</p>
+
+<p>I will be contributing to the development of the organization, especially with adding WebGL and HTML (plugin free) client support.</p>
+
+<p>We can work on this as a non-deadline based project or chop them into various GCI tasks.</p>
+
+<h1>Availability</h1>
+
+<p>I’m pretty sure that i’ll be able to devote about 40 - 50 hours every week to the project during the GSoC coding period.</p>
+
+<h1>Issues/ Shortcomings</h1>
+
+<ol>
+<li><p>There are several algorithmic drawbacks with deferred shading - transparent objects are hard to handle, anti-aliasing can not be used on legacy hardware, additional memory consumption because of the G-Buffer.</p></li>
+<li><p>In addition to that, deferred shading is harder to implement - it overrides the entire pipeline. Pretty much everything is rendered using manual shaders - which probably means a lot of shader code.</p></li>
+</ol>
+
+
+<h1>About me</h1>
+
+<ul>
+<li><a href="/index.html">About</a></li>
+</ul>
+
+
+<p>I am planning to blog my progress atleast once in two weeks. I think this is a good way to post progress on my project.</p>
+
+<p>I am fairly new to GSoC as this will be my first experience, but I am looking forward to build this amazing application with you and begin my journey in Open Source!</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 21:31</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

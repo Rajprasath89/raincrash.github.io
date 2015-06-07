@@ -1,0 +1,278 @@
+<html>
+  <head>
+    <meta content='Writing Kernel Modules::Multiple file modules - Bits, Pixels and Atoms' property='og:title' />
+    <title>Writing Kernel Modules::Multiple file modules - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/os/2014/12/15/writing-kernel-modules-lesson-five-multiple-file-modules-argument-passing/' property='og:url' />
+  <meta content="Before we get into the real stuff, there are a few must-knows that are worth discussing. Note the our purpose of this..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/os/2014/12/14/writing-kernel-modules-lesson-five-the-macros/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/gsoc/2015/03/29/copyleft-physics-engine/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>15 Dec 2014</div>
+            Writing Kernel Modules::Multiple file modules
+          </h1>
+          <p>Before we get into the real stuff, there are a few must-knows that are worth discussing. Note the our purpose of this tutorial set is to write our own LKMs and Rootkits for our own purposes. Few of them might have to be written in multiple files or require some arguments to be passed. We will discuss these issues now.
+<strong>
+Command-line Arguments</strong></p>
+
+<p>Command-line arguments are declared by defining the variables that take these arguments as global and using the <code>module_param()</code> macro. The variable declaration is usually described at the beginning of the module. The <code>insmod</code> is used to pass the values at runtime. Arrays of Integers or Strings are called using <code>module_param_array</code> and <code>module_param_string</code> macros.</p>
+
+<p>The <code>module_param_desc</code> is used to document arguments that the module can take.</p>
+
+<p>This is how command-line variables are declared.</p>
+
+<pre><code>&lt;code&gt;
+int number = 100;
+module_param(number, int , 0); // module_param(variable_name, variable_type , permissions);
+
+// This is how arrays are declared
+
+int numberArray[5];
+module_param_array(numberArray, int, NULL, 0); /* not interested in count */
+
+int numberArray2[30];
+int count;
+module_param_array(numberArray2, short, count, 0); /* put count into "count" variable */
+
+&lt;/code&gt;
+</code></pre>
+
+<p>Here&rsquo;s a sample program using command-line arguments.</p>
+
+<pre><code>&lt;code&gt;
+/*  
+    Using Command-line arguments
+    Author: Sricharan Chiruvolu
+    Date: 14 Dec 2014
+ */
+#include &lt;linux/module.h&gt;    
+#include &lt;linux/kernel.h&gt;
+#include &lt;linux/init.h&gt;
+#include &lt;linux/moduleparam.h&gt;
+#include &lt;linux/stat.h&gt;
+
+
+#define DRIVER_AUTHOR "Sricharan Chiruvolu "
+#define DRIVER_DESC   "The First Program - Template"
+
+//Declaring a few variables...
+static short int short_number = 1;
+module_param(short_number, short, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP);
+MODULE_PARM_DESC(short_number, "A short Number");
+
+
+static int number = 54;
+module_param(number, int, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP);
+MODULE_PARM_DESC(number, "A Number");
+
+
+static long int long_number = 33553466;
+module_param(long_number, short, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP);
+MODULE_PARM_DESC(long_number, "A long Number");
+
+
+static char *char_string = "Hello";
+module_param(char_string, charp, 0000);
+MODULE_PARM_DESC(char_string, "A character string");
+
+static int __init first_init(void)
+{
+    int integerA;
+    printk(KERN_INFO "This is our first program.");
+    printk(KERN_INFO "short_number is a short integer: %hd\n", short_number);
+    printk(KERN_INFO "number is an integer: %d\n", number);
+    printk(KERN_INFO "long_number is a long integer: %ld\n", long_number);
+    printk(KERN_INFO "char_string is a string: %s\n", char_string);
+
+    return 0;
+}
+
+static void __exit first_exit(void)
+{
+    printk(KERN_ALERT "End of our first program.");
+}
+
+module_init(first_init);
+module_exit(first_exit);
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR(DRIVER_AUTHOR);   
+MODULE_DESCRIPTION(DRIVER_DESC);
+
+/*  
+ *  This module uses /dev/testdevice.  The MODULE_SUPPORTED_DEVICE macro might
+ *  be used in the future to help automatic configuration of modules, but is 
+ *  currently unused other than for documentation purposes.
+ */
+MODULE_SUPPORTED_DEVICE("testdevice");
+
+&lt;/code&gt;
+</code></pre>
+
+<p>Now that we know how to send command-line arguments let&rsquo;s. We will next see how multiple file modules work.</p>
+
+<hr />
+
+<p>Quite often, it is logically suitable to write multi-file kernel modules. Let&rsquo;s write one now. We will use two files <code>third_one.c</code> and <code>third_one.c</code> for this.</p>
+
+<p><code>third_one.c</code> will look like this:</p>
+
+<pre><code>&lt;code&gt;
+/*  
+    Using multiple files - Part one
+    Author: Sricharan Chiruvolu
+    Date: 16 Dec 2014
+ */
+#include &lt;linux/kernel.h&gt;
+#include &lt;linux/module.h&gt;
+int init_module(void)
+{
+    printk(KERN_INFO "Hello, world - this is the kernel speaking\n");
+    return 0;
+}
+&lt;/code&gt;
+</code></pre>
+
+<p>and the other one, <code>third_two.c</code> will be:</p>
+
+<pre><code>&lt;code&gt;
+/*  
+    Using multiple files - Part two
+    Author: Sricharan Chiruvolu
+    Date: 16 Dec 2014
+ */
+
+#include &lt;linux/kernel.h&gt;
+#include &lt;linux/module.h&gt;
+
+void cleanup_module()
+{
+    printk(KERN_INFO "Short is the life of a kernel module\n");
+}
+&lt;/code&gt;
+</code></pre>
+
+<p>You can see that it&rsquo;s just the same program as our <a href="http://sricharanized.wordpress.com/2014/12/14/writing-kernel-modules-lesson-five-our-first-kernel-module/">first</a> but is in two different files.</p>
+
+<p>We are only supposed to change our Makefile to build both the object files of our program one after the other and create a combined object code. The modified <code>Makefile</code> looks like this.</p>
+
+<pre><code>&lt;code&gt;
+obj-m += combined_module.o
+combined_module-objs := third_one.o third_two.o
+
+all:
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+&lt;/code&gt;
+</code></pre>
+
+<p>You can now run <code>make</code> command to find the <code>combined_module.ko</code> kernel module.</p>
+
+<p>We have successfully written a basic multi-file kernel module. In the next tutorial, we will discuss about character device drivers. So, stay tuned.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 14:08</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

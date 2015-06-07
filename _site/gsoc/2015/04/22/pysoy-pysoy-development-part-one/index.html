@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <meta content='[Pysoy] - Pysoy Development, Part One - Bits, Pixels and Atoms' property='og:title' />
+    <title>[Pysoy] - Pysoy Development, Part One - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/gsoc/2015/04/22/pysoy-pysoy-development-part-one/' property='og:url' />
+  <meta content="_In this blogpost, I would like to describe the engine from a game developer's perspective and as a general introduct..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/2015/04/17/source-code-management-using-git/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/gsoc/2015/05/02/advice-for-students-applying-to-google-summer-of-code-2016/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>22 Apr 2015</div>
+            [Pysoy] - Pysoy Development, Part One
+          </h1>
+          <p><em>In this blogpost, I would like to describe the engine from a game developer&rsquo;s perspective and as a general introduction to the organization and the engine itself.</em></p>
+
+<p><em>Future posts would include technical discussions, engine development e.t.c.</em></p>
+
+<p><strong>What exactly does copyleftgames do?</strong></p>
+
+<p><em>They maintain and license games!</em></p>
+
+<p>They maintain gaming softwares under copyleft licenses (mostly GNU AGPLv3, I guess). And I’m planning to work on <a href="http://www.pysoy.org/">Pysoy</a>, a cloud game engine. The games are intended to run on the server and playable on multiple devices. Well, pysoy along with <a href="http://www.playerd.org/">playerd</a> (a service for abstacting input devices and user data) and <a href="http://www.lightmelody.org/">lightmelody</a> ( a network library for cloud games) would facilitate gaming on a wide variety of devices to which pysoy is ported to.</p>
+
+<p><strong>How do I make pysoy games?</strong></p>
+
+<blockquote>Currently, developing games directly is pretty difficult. You will have to work more on the engine than your game itself to do so.</blockquote>
+
+
+<p>Get a linux machine. Download the engine (libsoy and pysoy) , build and install it. Once, installed you can import the the <em>soy</em> module and use it.</p>
+
+<p>I won’t be discussing the installation process or any programming details here. This blogpost is an introduction to the engine itself.</p>
+
+<p>A simple scene can be written in ~40 lines of code.</p>
+
+<p><strong>Understanding <em>soy</em> package</strong></p>
+
+<p>I would like to give an introduction some on essential submodules and classes in soy module. For further details you can always look into pydocs associated with each module/class name.</p>
+
+<blockquote>To get help on any module/class, you type python3 -c “import soy; help(soy.)” in your command window.</blockquote>
+
+
+<p>First, the <em>Client</em>. Clients in pysoy are intended to manage window creation, define context and data state of the object e.t.c. Currenty, the controllers are proposed to be managed by playerd and audio will soon be integrated as a texture to the body itself. Client instances are created locally with _soy.Client_object.</p>
+
+<p>Other essential submodules of the soy package includes</p>
+
+<ul>
+<li><p>atoms</p></li>
+<li><p>bodies</p></li>
+<li><p>scenes</p></li>
+<li><p>materials</p></li>
+<li><p>textures</p></li>
+<li><p>widgets</p></li>
+<li><p>fields and joints</p></li>
+</ul>
+
+
+<p><em>Atoms, </em>as the name suggests are the building blocks. The data types that helps the other submodules. Atoms include Color, Position, Size, Rotation, Vector and many other essential classes.</p>
+
+<p><em>Bodies </em>are the objects in a scene. Matter that’s made up of atoms. They render to the scene, intercact, collide with each other. Sphere and Boxes are the obvious ones. Billboards and portals are examples of complicated bodies. Camera and Light are also considered as bodies<em> (</em>Why?_ You will soon understand).</p>
+
+<p><em>Scenes</em> are where the bodies are present. It would contain geometry, viewpoint, texture, lighting, and shading information as a description of the virtual scene as in the real world. Room is the one that’s commonly used. Depending on the gameplay, scenes can be created. Typical examples include Room, Landscape and Space.</p>
+
+<p><em>Materials</em> govern the appearance of bodies in a scene. Materials define how the object looks and what properties can it have. Examples include Wireframed, Textured and Colored.</p>
+
+<p><em>Texturing</em> is the application of a type of surface to a 3D image. Heightmaps, Cubemaps, Bumpmaps are some trivial examples. SVGs can also be mapped to a material as a texture. Future iterations of the engine would include Audio as a texture.</p>
+
+<p><em>Widgets</em> are the tricky ones, they define the rendering areas. Containers, Canvas and Projectors are few examples. Perhaps, Projector is the one that’s frequently used. It is used to “Project” the output of the camera to the screen. Widow objects can also be created from the Widgets submodule. They automatically create Client instances. comes</p>
+
+<p><em>Fields</em> effect the scenes. They manipulate the bodies inside that scene. Examples include Buoyancy, Wind e.t.c.</p>
+
+<p><em>Joints</em> connect bodies. They are typically used to create complex structures from primitive bodies. The anchor point of a joint is associated with that scene. Ball and Socket, Pivot e.t.c. are some examples.</p>
+
+<p><em>The next blogpost would be related to the graphics and rendering part of the engine and it&rsquo;s development.</em></p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 12:09</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<html>
+  <head>
+    <meta content='An Introduction to Graphic Shaders - Part One - Bits, Pixels and Atoms' property='og:title' />
+    <title>An Introduction to Graphic Shaders - Part One - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/opengl/2014/12/05/an-introduction-to-graphic-shaders-part-one/' property='og:url' />
+  <meta content="Shader in computer graphics is something that tells a computer to draw something in a specific and unique way. The la..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/opengl/2014/12/05/compilng-and-linking-glfw-on-linux/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/os/2014/12/13/writing-kernel-modules-101-one-what-is-a-kernel-module/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>05 Dec 2014</div>
+            An Introduction to Graphic Shaders - Part One
+          </h1>
+          <p>Shader in computer graphics is something that tells a computer to draw something in a specific and unique way. The language in which these shaders are programmed depends on the target environment. OpenGL uses OpenGL Shading Language (GLSL), the official Direct3D shading language is High Level Shader Language (HLSL). There are also quite a few famous shading libraries and languages including Cg by Nvidia and Metal Shading Language by Apple.</p>
+
+<p>We will be discussing mostly about GLSL shaders. In OpenGL rendering pipeline, there are various shaders:</p>
+
+<ul>
+<li><p>Vertex Shaders</p></li>
+<li><p>Evaluation Shaders (Tessellation Shaders)</p></li>
+<li><p>Geometry Shaders</p></li>
+<li><p>Fragment Shaders</p></li>
+<li><p>Compute Shaders</p></li>
+</ul>
+
+
+<p>It isn&rsquo;t necessary to learn about all the shader handling functions for real-time graphics programming. It is only required to know what data that the graphic card needs to draw a scene correctly. This data usually comes from <em>vertex attributes.</em> You need to define a proper <em>world position. </em>OpenGL defines its world coordinates just like a sheet of graph paper, with (0,0,0) at the center of the scene. Note that this isn&rsquo;t the case with other graphic languages where the center would be at the top-right corner.</p>
+
+<p>Let&rsquo;s define a triangle by specifying its vertices as an array.</p>
+
+<pre><code>float data[] = {
+      0.0f, 1.0f, // vertex A
+      1.0f,-1.0f, // vertex B
+     -1.0f,-1.0f  // vertex C
+}
+</code></pre>
+
+<p>We then need to define a way for uploading this vertex data to the GPU. This is done by OpenGL&rsquo;s _Vertex Buffer Object _ (VBO) feature.</p>
+
+<p>This is how it&rsquo;s done.</p>
+
+<pre><code>//Initialise VBO - do only once, at start of program
+//Create a variable to hold the VBO identifier
+GLuint triangleVBO;
+
+//Vertices of a triangle (counter-clockwise winding)
+float data[] = {1.0, 0.0, 1.0, 0.0, 0.0, -1.0, -1.0, 0.0, 1.0};
+//try float data[] = {0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0}; if the above doesn't work.
+
+//Create a new VBO and use the variable id to store the VBO id
+glGenBuffers(1, &amp;triangleVBO);
+</code></pre>
+
+<p>VBO avoids sending the data everytime the screen is rendered. We will discuss about it&rsquo;s functioning later.</p>
+
+<p>Notice the datatype <code>GLuint</code>. It&rsquo;s a cross-plantform substitute of <code>unsigned int</code>. You will need this <code>triangleVBO</code> number to activate the VBO and destroy it when you are done with it.</p>
+
+<p>To actually upload data to the VBO you have the active object.</p>
+
+<pre><code>glBindBuffer(GL_ARRAY_BUFFER, triangleVBO);
+</code></pre>
+
+<p>The enum value <code>GL_ARRAY_BUFFER</code> means &ldquo;use that buffer object for vertex data&rdquo;. We will pounder about what that means later.</p>
+
+<p>Now that the VBO is active, we can copy the vertex data to it. This is how it&rsquo;s done.</p>
+
+<pre><code>glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), data, GL_STATIC_DRAW);
+</code></pre>
+
+<p>Notice that it doesn&rsquo;t refer to the <code>triangleVBO</code> id. It already know the active object. The final argument, <code>GL_STATIC_DRAW</code> defines the usage of the vertex data we just uploaded.</p>
+
+<ul>
+<li><p><code>GL_STATIC_DRAW</code>: The vertex data will be uploaded once and drawn many times</p></li>
+<li><p><code>GL_DYNAMIC_DRAW</code>: The vertex data will be changed frequently and also drawn many times</p></li>
+<li><p><code>GL_STREAM_DRAW</code>: The vertex data is changed almost everytime it&rsquo;s drawn</p></li>
+</ul>
+
+
+<p>The vertices with their attributes has been copied to the graphic card. But isn&rsquo;t not ready to be used yet. Now we need to specify how the graphic card would handle all the attributes. Now the <strong>shaders</strong> comes to place.</p>
+
+<p><strong>A simple vertex shader</strong></p>
+
+<p>Let&rsquo;s take a simple example to start with.</p>
+
+<pre><code>#version 150
+
+in vec2 position;
+
+void main()
+{
+    gl_Position = vec4(position, 0.0, 1.0);
+} 
+</code></pre>
+
+<p>All vertices of our primitive program will have to go through this program.</p>
+
+<p>More discussion will be available in Part two.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 21:31</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

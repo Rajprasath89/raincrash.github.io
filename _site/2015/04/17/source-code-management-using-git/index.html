@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <meta content='Source code management using GIT - Bits, Pixels and Atoms' property='og:title' />
+    <title>Source code management using GIT - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/2015/04/17/source-code-management-using-git/' property='og:url' />
+  <meta content="Here's my article for Sanchita-15 (Amrita School of Engineering - Annual Magazine).Git is a distributed revision cont..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/gsoc/2015/03/30/copyleft-deferred-renderer/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/gsoc/2015/04/22/pysoy-pysoy-development-part-one/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>17 Apr 2015</div>
+            Source code management using GIT
+          </h1>
+          <blockquote>Here's my article for Sanchita-15 (Amrita School of Engineering - Annual Magazine).</blockquote>
+
+
+<p>Git is a distributed revision control and source code management system.  It was developed by Linus Torvalds, the father of Linux kernel. It is designed to handle everything from small to very large software projects with speed and efficiency. Projects that use git for their source code management include Linux Kernel, Android, Debian, GNOME, Ruby on Rails, VLC, e.t.c.</p>
+
+<p><strong><strong> </strong></strong></p>
+
+<p>Software projects require collaboration of code. Software developers need to work simultaneously without overwriting each other’s changes as well as maintain a history of every version of software they release. This is where a version control system like git comes into picture. So, What is a version control system? It’s a software that helps software developers to work together and maintain a complete history of their work. A version control system allows you to track the history of a collection of files and includes the functionality to revert the collection of files to another version. Each version captures a snapshot of the files at a certain point in time. The collection of files is usually <em>source code</em> for a programming language but a typical version control system can put any type of file under version control.</p>
+
+<p><strong><strong> </strong></strong></p>
+
+<p>In a Distributed version control systems, DVCS (such as Git, Mercurial, Bazaar or Darcs), clients don’t just check out the latest snapshot of the files: they fully mirror the repository. Thus if any server dies, and these systems were collaborating via it, any of the client repositories can be copied back up to the server to restore it. Every clone is really a full backup of all the data.</p>
+
+<p><strong><strong> </strong></strong></p>
+
+<p>As most of the operations are performed locally, it gives a huge benefit in terms of speed. Git does not rely on the central server; that is why, there is no need to interact with the remote server for every operation. The core part of Git is written in C, which avoids runtime overheads associated with other high-level languages. Though Git mirrors entire repository, the size of the data on the client side is small. This illustrates the efficiency of Git.</p>
+
+<p><strong><strong> </strong></strong></p>
+
+<p>Furthermore, many of these systems deal pretty well with having several remote repositories they can work with, so you can collaborate with different groups of people in different ways simultaneously within the same project. This allows you to set up several types of workflows that aren’t possible in centralized systems, such as hierarchical models.</p>
+
+<p>Before we dive further into version controlling our software projects, let’s look at some terms associated with GIT.</p>
+
+<p><em>Repository </em>- The collection of files including the storage of their revision history.</p>
+
+<p><em>Commit</em> - A commit is an object of change done on the repository. It identifies a new revision of the content of the repository. Each commit object contains the author and the committer, thus making it possible to identify who did the change.</p>
+
+<p><em>Branch</em> - A pointer to a commit. If you’re working on a certain branch, the creation of new commit advances this pointer to the newly created commit.</p>
+
+<p>Git allows the user to synchronize the local repository with other (remote) repositories.</p>
+
+<p>Users with sufficient authorization can <em>push</em> changes from their local repository to remote repositories. They can also <em>fetch</em> or <em>pull </em>changes from other repositories to their local Git repository.</p>
+
+<p>Now that we understand what GIT is, let’s start using GIT in our own software projects</p>
+
+<p><strong>SETUP GIT</strong></p>
+
+<p>Different releases of GIT can be downloaded from <a href="http://git-scm.com/download/">http://git-scm.com/download/</a> for Windows, Mac OS X, Linux and Solaris. The installation process is as usual. Alternatively, there are various GUI clients available that helps you to manage you git repos efficiently. GitHub has many features including, GUI clients for each platform, hosts your static web repositories e.t.c.</p>
+
+<p><strong>CREATE A NEW REPOSITORY</strong></p>
+
+<p>Create a new directory (New Folder), say ‘random_name’. Open it and perform a ‘git init’ to create a new repository.</p>
+
+<p><strong>CHECKOUT A REPOSITORY</strong></p>
+
+<p>Create a working copy of a local repository by running the command ‘git clone /path/to/repository/’ when using a remote server, your command will be ‘git clone username@host:/path/to/repository/’.</p>
+
+<p><strong>WORKFLOW</strong></p>
+
+<p>Your local repository consists of three ‘trees’ maintained by git. The first one is your ‘Working Directory’ (say, random_name) which holds the actual files. The second one is call the ‘Index’ which acts as a staging area and finally the ‘HEAD’ which points to the last commit you’ve made.</p>
+
+<p><strong>ADD AND COMMIT</strong></p>
+
+<p>You can propose changes (add it to the Index) using ‘git add <filename>’ of ‘git add *’ (To add all the files).This is the first step in the basic git workflow. To actually commit these changes use, ‘git commit -m ”commit_message”’.Now the file is committed to the HEAD, but not in your remote repository yet.</p>
+
+<p><strong>PUSHING CHANGES</strong></p>
+
+<p>If you have not cloned an existing repository and want to connect your repository to a remote server, you need to add it with, ‘git remote add origin <server>’. Now, you will be able to push your changes to the selected remote server, namely ‘master’.</p>
+
+<p>You are now in the HEAD of your local working copy. To send those changes to your remote repository, execute ‘git push origin master’. Change ’master’ to whatever branch you want to push changes to.</p>
+
+<p><strong>UPDATE AND MERGE</strong></p>
+
+<p>To update your local repository to the newest commit, execute ‘git pull’ in your working directory to fetch and merge remote changes. To merge another branch into your active branch (e.g. master), use ‘git merge <branch>’. In both cases git tries to auto-merge changes. Unfortunately, this is not always possible and results in conflicts. You should now merge these conflicts manually. After changing the files shown by the git, you need to mark them as merged with ‘git add <filename>’. Before merging changes, you can preview them using ‘git diff <source_branch> <target_branch>’.</p>
+
+<blockquote>Now, you should feel comfortable using Git and you can do all the basic local Git operations – creating or cloning a repository, making changes, staging and committing those changes, and viewing the history of all the changes the repository has been through. Feel free to use it in your software projects.</blockquote>
+
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 20:57</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

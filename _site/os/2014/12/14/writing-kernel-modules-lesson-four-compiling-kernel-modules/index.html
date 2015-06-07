@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <meta content='Writing Kernel Modules::Compiling Kernel Modules - Bits, Pixels and Atoms' property='og:title' />
+    <title>Writing Kernel Modules::Compiling Kernel Modules - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/os/2014/12/14/writing-kernel-modules-lesson-four-compiling-kernel-modules/' property='og:url' />
+  <meta content="It's important to know how [Makefiles](http://mrbook.org/tutorials/make/) work. Another way (easier one) is by using ..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/opengl/2014/12/13/163/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/os/2014/12/14/writing-kernel-modules-lesson-five-our-first-kernel-module/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>14 Dec 2014</div>
+            Writing Kernel Modules::Compiling Kernel Modules
+          </h1>
+          <p>It&rsquo;s important to know how <a href="http://mrbook.org/tutorials/make/">Makefiles</a> work. Another way (easier one) is by using <code>kbuild</code>. We will discuss about it soon.</p>
+
+<pre><code>obj-m += first.o
+
+all:
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+    make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+</code></pre>
+
+<p>Now, This is just a sample of how the file looks. We will write our first program, <code>first.c</code> in the next tutorial. After this, we use <strong>make </strong>command to the build the kernel module.</p>
+
+<p>Now it is time to insert your freshly-compiled module into the kernel with <code>insmod ./first.ko</code>. The latest kernel versions require you to name the object files with <code>.ko</code> extension to diiferentiate that from the usual ones. The diiference would be the <code>.modinfo</code> file that comes along. We will see what it is in the next tutorial.</p>
+
+<p>As we already know, all the kernel modules that are loaded are listed in the <code>/proc/modules</code>. Once you write your first module, you can <code>cat</code> our file and see if it&rsquo;s loaded or not. To remove our module from the kernel, use <code>rmmod first</code>.</p>
+
+<p>So, let&rsquo;s start writing our modules now.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 11:51</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

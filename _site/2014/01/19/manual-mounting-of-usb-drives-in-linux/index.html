@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <meta content='Manual Mounting of USB drives in Linux - Bits, Pixels and Atoms' property='og:title' />
+    <title>Manual Mounting of USB drives in Linux - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/2014/01/19/manual-mounting-of-usb-drives-in-linux/' property='og:url' />
+  <meta content="When a USB doesn't mount automatically, you can manually mount it. For this you need to login as root (superuser) and..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/2014/01/19/how-to-find-what-ports-are-open-in-linux/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/2014/01/19/viewing-and-changing-permissions-of-directories-in-linux/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>19 Jan 2014</div>
+            Manual Mounting of USB drives in Linux
+          </h1>
+          <p>When a USB doesn&rsquo;t mount automatically, you can manually mount it. For this you need to login as root (superuser) and do the following process.</p>
+
+<p>Steps:</p>
+
+<ul>
+<li>Login as Root.</li>
+<li><p>Check if the computer have recognized the USB you plugged in by the<strong> lsusb</strong> command.</p>
+
+<p>cs50/home/sricharan # lsusb</p></li>
+<li><p>Create a  directory where your USB drive will be mounted.</p>
+
+<p>cs50/home/sricharn # cd Desktop/<br></br>cs50/home/sricharan/Desktop # mkdir flash<br></br>cs50/home/sricharn/Desktop #<br></br></p></li>
+<li><p>We need to get the appropriate device which is attached to your flash drive. To do this, simply issue the following command in the same terminal window.<br/>
+<strong>dmesg | grep -i “SCSI device”</strong></p>
+
+<p>  cs50/home/sricharan/Desktop # dmesg | grep -i &ldquo;SCSI device&rdquo;</p>
+
+<ul>
+<li><p>When you’ve found the correct device, Usually it would be sda, sdb, sdc, etc.  Enter the following command into the same terminal window:</p>
+
+<p>cs50/home/sricharan/Desktop # pwd<br></br>/home/sricharan/Desktop<br></br>cs50/home/sricharan/Desktop # mount -t vfat -o uid=jason,gid=users /dev/sda /home/sricharan/Desktop/flash<br></br>cs50/home/sricharan/Desktop #</p></li>
+</ul>
+</li>
+</ul>
+
+
+<p>Your flash drive is now mounted and ready to use.  If you followed  the instructions exactly, there is a new folder on your desktop named  “flash” which can be used to put files, images, music, or anything else  you want!</p>
+
+<p>When you’re done copying, simply pop out the drive and you’re on your way.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 12:00</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta content='Writing Kernel Modules 101: : What is a Kernel Module? - Bits, Pixels and Atoms' property='og:title' />
+    <title>Writing Kernel Modules 101: : What is a Kernel Module? - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/os/2014/12/13/writing-kernel-modules-101-one-what-is-a-kernel-module/' property='og:url' />
+  <meta content="Kernel modules are pieces of code that can be loaded or unloaded into the kernel on demand. Strictly speaking, this i..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/opengl/2014/12/05/an-introduction-to-graphic-shaders-part-one/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/os/2014/12/13/writing-kernel-modules-101-lesson-two/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>13 Dec 2014</div>
+            Writing Kernel Modules 101: : What is a Kernel Module?
+          </h1>
+          <p>Kernel modules are pieces of code that can be loaded or unloaded into the kernel on demand. Strictly speaking, this is the definition of a &lsquo;loadable&rsquo; kernel module. A module can be built-in or loadable. The advantage of loadability being that there isn&rsquo;t any need for booting the kernel again and again after every load. To load or remove modules they have to be configurated appropriately. In this tutorial session on kernel modules we will be going through this configuration process.</p>
+
+<p>To write your own kernel modules, you need to have basic understanding of processes in an operating system. You should have implimented basic OS level code (like using fork() function, few CPU scheduling algorithms e.t.c). A frim grip on C programming is also essential.</p>
+
+<p>Being a novice programmer myself, I will be learning and blogging simultaneously. Feel free to refer the &ldquo;<strong>The Linux Kernel Module Programming Guide</strong>&rdquo; for authentic information.****</p>
+
+<p>In this tutorial, I will be discussing various algorithms and techniques on writing your own kernel modules. All the code is written in C and ran on Ubuntu 14.04 (debian based) linux system. Feel free to comment your queries.</p>
+
+<p>So, let&rsquo;s get started.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 20:28</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta content='[Pysoy] - Pysoy Development, Part Two - Bits, Pixels and Atoms' property='og:title' />
+    <title>[Pysoy] - Pysoy Development, Part Two - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/gsoc/2015/06/05/pysoy-pysoy-development-part-two/' property='og:url' />
+  <meta content="A long time ago, I have written an introductory [article on pysoy](/gsoc/2015/04/22/pysoy-pysoy-development-part-one/..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/web%20dev/2015/06/05/the-new-web-development-treads/">
+        ‹
+      </a>
+    </div>
+  
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>05 Jun 2015</div>
+            [Pysoy] - Pysoy Development, Part Two
+          </h1>
+          <p>A long time ago, I have written an introductory <a href="/gsoc/2015/04/22/pysoy-pysoy-development-part-one/">article on pysoy</a>, now after a few weeks here&rsquo;s the <em>Part Two</em>.</p>
+
+<p>In this article, I would love to give an introduction about how the background stuff happens in the <em>soy </em>module. Pysoy is just the CPython wrapper of <em>Libsoy</em>, which is the neural schema, the place where all the magic happens.</p>
+
+<p><em>Libsoy</em> is written in Genie and C. Genie is a comrade of Vala, both developed under the GNOME project. They use the GObject system and complie to C. Genie had a very few resources I could get my hands on, nevertheless, the language seems to be developer friendly. The syntax is very much similar to python. I really loved the paradigms used, esp. the properties and ownership stuff. (see: <a href="https://wiki.gnome.org/Projects/Genie">Projects/Genie</a>)</p>
+
+<p>Genie allows you to write pretty high level stuff in very less LOC. All you have to do is write the C Wrappers and as Genie uses a &lsquo;valac&rsquo; compiler to compile to C, you can achieve C-like speeds. The CPython PyObject API helps us to wrap a python module around this. A python module that runs on C and written in Genie. This is exactly what Libsoy + Pysoy is. Fascinating, huh!</p>
+
+<p>There&rsquo;s a catch of course! You can&rsquo;t just go away with the nice Genie logic. Whenever the CPython entry points a.k.a the public API used by python is changed, you need to write the essential CPython wrappers, add necessary bindings e.t.c. Yes, for every function of every object. Which might be a daunting process.</p>
+
+<p><a href="https://sricharanized.files.wordpress.com/2015/06/pygtk-splash.jpg"><img src="https://sricharanized.files.wordpress.com/2015/06/pygtk-splash.jpg" alt="pygtk-splash" /></a></p>
+
+<p>So, that&rsquo;s it. You have Libsoy, you write your logic in Genie. The valac complier genie uses generates C code. That&rsquo;s what Libsoy is all about. Next, you write wrappers (using PyObject C API), you get a really cool CPython based module. That&rsquo;s what Pysoy is about. The game developer is abstracted with a really nice <em>soy</em> module for import.</p>
+
+<p>The engine is in it&rsquo;s infant stage. It&rsquo;s being developed by many students around the world at an impressive speed though. The project would also include Lightmelody and Playerd modules which would handle the networking and controller stuff respectively of the this 3D cloud based engine for multiple platforms.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 16:48</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>

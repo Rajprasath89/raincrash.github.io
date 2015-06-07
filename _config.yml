@@ -1,0 +1,31 @@
+title:            Bits, Pixels and Atoms
+description:      A jekyll theme. Because I scribble.
+url:              
+signoff:          sricharan
+disqus_shortname: bitspixelsandatoms
+facebook_appid:   # appid for like button, remove from /_includes/share.html if unwanted.
+google_analytics: 
+
+links:
+  - name:         About
+    url:          /about
+  - name:         GitHub
+    url:          http://github.com/sricharanized/
+    external:     true
+  - name:         Twitter
+    url:          http://twitter.com/TheRaincrash/
+    external:     true
+  - name:         LinkedIn
+    url:          http://linkedin.com/in/sricharanchiruvolu
+    external:     true
+  - name:         Quora
+    external:     true
+    url:          http://quora.com/Sricharan-Chiruvolu
+  - name:         E-Mail
+    external:     true
+    url:          mailto:sricharanized@gmail.com
+pygments:         true
+permalink:        pretty
+markdown:         rdiscount
+rdiscount:
+  extensions:     [smart]

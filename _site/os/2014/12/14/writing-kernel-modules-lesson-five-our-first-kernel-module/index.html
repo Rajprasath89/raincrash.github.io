@@ -1,0 +1,218 @@
+<html>
+  <head>
+    <meta content='Writing Kernel Modules:: Our first kernel module - Bits, Pixels and Atoms' property='og:title' />
+    <title>Writing Kernel Modules:: Our first kernel module - Bits, Pixels and Atoms</title>
+    <link href='/images/fav.png' rel='shortcut icon'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+<link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
+<!-- - -->
+<script src='/javascripts/jquery.js' type='text/javascript'></script>
+<script src='/javascripts/pd.js' type='text/javascript'></script>
+<script src='/javascripts/basics.js' type='text/javascript'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<!-- - -->
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <meta content='/os/2014/12/14/writing-kernel-modules-lesson-five-our-first-kernel-module/' property='og:url' />
+  <meta content="Finally, It's time to write our first kernel module. But before that, do you know what `printk()` is? It's not an out..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+  </head>
+  <body>
+    <header>
+<a id="go-back-home" href="/">
+<h1>Sricharan Chiruvolu</h1>
+<img src="/images/avatar.png" alt="Sricharan Chiruvolu" width="70" height="70"></a>
+<p>Bits, Pixels and Atoms</p>
+</header>
+    <div id='container'>
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+      <section class="paging">
+  
+    <div class="left">
+      <a href="/os/2014/12/14/writing-kernel-modules-lesson-four-compiling-kernel-modules/">
+        ‹
+      </a>
+    </div>
+  
+  
+    <div class="right">
+      <a href="/os/2014/12/14/writing-kernel-modules-lesson-five-the-macros/">
+        ›
+      </a>
+    </div>
+  
+</section>
+      <div class="content">
+        <section class='post'>
+          <h1 class="upcase">
+            <div class='date'>14 Dec 2014</div>
+            Writing Kernel Modules:: Our first kernel module
+          </h1>
+          <p>Finally, It&rsquo;s time to write our first kernel module. But before that, do you know what <code>printk()</code> is? It&rsquo;s not an output statement. It is used to log information or give warnings for the kernel. The kernel uses the loglevel to decide whether to print the message to the console. The kernel displays all messages with a loglevel below a specified value on the console.</p>
+
+<p>You specify a loglevel like this:</p>
+
+<pre><code>    printk(KERN_WARNING "This is a warning!\n");
+    printk(KERN_DEBUG "This is a debug notice!\n");
+    printk("I did not specify a loglevel!\n")
+</code></pre>
+
+<p>The <code>KERN_WARNING</code> and <code>KERN_DEBUG</code> strings are simple defines found in <linux/ kernel.h>. They expand to a string such as &ldquo;<4>&rdquo; or &ldquo;<7>&rdquo; that is concatenated onto the front of the printk() message. The kernel then decides which messages to print on the console based on this specified loglevel and the current console loglevel, <code>console_loglevel</code>. If you do not specify a loglevel, it defaults to <code>DEFAULT_MESSAGE_LOGLEVEL</code>, which is currently <code>KERN_WARNING</code>. Because this value might change, you should always specify a loglevel for your messages.</p>
+
+<p>Here&rsquo;s a what each <code>loglevel</code> mean:</p>
+
+<ul>
+<li><p> KERN_EMERG - An emergency condition; the system is probably dead</p></li>
+<li><p>KERN_ALERT - A problem that requires immediate attention</p></li>
+<li><p>KERN_CRIT - A critical condition</p></li>
+<li><p>KERN_ERR - An error</p></li>
+<li><p>KERN_WARINING - A warning</p></li>
+<li><p>KERN_NOTICE - A normal, but perhaps noteworthy, condition</p></li>
+<li><p>KERN_INFO - An informational message</p></li>
+<li><p>KERN_DEBUG - A debug message typically superfluous</p></li>
+</ul>
+
+
+<p>Okay. Enough of prerequisites. Here is our first kernel module code. Don' t compile it yet. We will improvise the code. This is just the basic template.</p>
+
+<pre><code>/* 
+    Our first kernel module - first.c 
+    Author: Sricharan Chiruvolu
+    Date: 14 Dec 2014
+*/
+#include &lt;linux/module.h&gt;
+#include &lt;linux/kernel.h&gt;
+
+int init_module(void){
+
+    //Our initial code goes here...
+
+    return 0;
+}
+
+void cleanup_module(void){
+
+    //The terminating code goes here...
+}
+</code></pre>
+
+<p>The <code>init_module</code> function is called after the module is loaded into the kernel and the <code>cleanup_module</code> function is called just before removing the module from the kernel.</p>
+
+<p>Note that the use of <code>cleanup_module</code> function is to explicitly undo the changes of <code>init_module</code> and remove the module safely from the kernel.</p>
+
+<p>Also, all the source code can be downloaded <a href="https://github.com/raincrash/Writing-Kernel-Modules">here</a>. Each program is committed according to this tutorial. So you can visit the previous commits for the appropriate one.</p>
+
+<hr />
+
+<p>Now, let&rsquo;s add some output statements to our program. As already mentioned, we will use <code>printk()</code>.</p>
+
+<pre><code>/* 
+    Our first kernel module - first.c 
+    Author: Sricharan Chiruvolu
+    Date: 14 Dec 2014
+*/
+#include 
+#include 
+
+int init_module(void){
+
+    printk(KERN_ALERT "This is our first program.");
+
+    return 0;
+}
+
+void cleanup_module(void){
+
+    printk(KERN_ALERT "End of our first program.");
+}
+</code></pre>
+
+<p>Now we are ready to test our module. After writing the proper Makefile, run the <code>**make**</code> command. If you have any issues refer to the previous <a href="http://sricharanized.wordpress.com/2014/12/14/writing-kernel-modules-lesson-four-compiling-kernel-modules/">tutorial</a>.</p>
+
+<p>You should get something like this in your terminal</p>
+
+<pre><code>make -C /lib/modules/3.13.0-43-generic/build M=/home/sricharan/kernel modules
+make[1]: Entering directory `/usr/src/linux-headers-3.13.0-43-generic'
+  CC [M]  /home/sricharan/kernel/first.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/sricharan/kernel/first.mod.o
+  LD [M]  /home/sricharan/kernel/first.ko
+make[1]: Leaving directory `/usr/src/linux-headers-3.13.0-43-generic'
+</code></pre>
+
+<p>Your first kernel module is ready. Load it to the kernel with the following command <code>insmod first.ko</code>. Note that you need sufficient privileges to do so.</p>
+
+<p>Our LKM is loaded into the kernel. As already discussed in the previous <a href="http://sricharanized.wordpress.com/2014/12/14/writing-kernel-modules-lesson-four-compiling-kernel-modules/">tutorial</a>, you can check out <code>/proc/modules</code> for our kernel module.</p>
+
+<p>As of now, let&rsquo;s remove it from the kernel. Run the <code>rmmod first</code> command to do so.
+In the following tutorials we will dive deep into more advanced LKM code.</p>
+
+          <br />
+<p>
+  sricharan
+  <span class="muted">at 13:13</span>
+</p>
+
+
+        </section>
+      </div>
+      
+
+      
+        <div class="block">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      var disqus_shortname = "bitspixelsandatoms"; 
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      
+      <div class="block">
+  
+    <a target="_top" class="main" href="/about">About</a>
+  
+    <a target="_blank" class="main" href="http://github.com/sricharanized/">GitHub</a>
+  
+    <a target="_blank" class="main" href="http://twitter.com/TheRaincrash/">Twitter</a>
+  
+    <a target="_blank" class="main" href="http://linkedin.com/in/sricharanchiruvolu">LinkedIn</a>
+  
+    <a target="_blank" class="main" href="http://quora.com/Sricharan-Chiruvolu">Quora</a>
+  
+    <a target="_blank" class="main" href="mailto:sricharanized@gmail.com">E-Mail</a>
+  
+</div>
+    </div>
+    <footer>
+  <br />
+  <img src="/images/beaker.png" alt="Mr. Beaker" style="height: 20px; width: 20px;" /> 
+  <br/>
+  Developed with &hearts; for open-source. Hosted on github.
+</footer>
+  </body>
+</html>
