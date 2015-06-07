@@ -6,6 +6,9 @@ disqus_shortname: bitspixelsandatoms
 facebook_appid:   
 google_analytics: 
 
+gems:
+  - jekyll-sitemap
+
 links:
   - name:         About
     url:          /about
