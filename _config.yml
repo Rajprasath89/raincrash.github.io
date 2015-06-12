@@ -27,6 +27,9 @@ links:
   - name:         E-Mail
     external:     true
     url:          mailto:sricharanized@gmail.com
+  - name:         RSS Feed
+    external:     true
+    url:          /feed.xml
 pygments:         true
 permalink:        pretty
 markdown:         rdiscount
