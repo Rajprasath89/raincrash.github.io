@@ -1,0 +1,109 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.12.15)  3 JUL 2015 23:31
+entering extended mode
+**resume.tex
+(H:\sricharanized.github.io\assets\resume.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
+, bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
+ian, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, icelandic, indonesian, interlingua, irish, italian,
+ kannada, kurmanji, latin, latvian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, ngerman
+-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, romanian, russian, sanskrit, serbian, slovak, sloven
+ian, spanish, swedish, swissgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usenglishmax, w
+elsh, loaded.
+(C:\Users\Sricharan\AppData\Roaming\MiKTeX\2.9\tex\latex\resume\res.cls
+Document Style `res' <26 Sep 89>.
+Document Class: res 2000/05/19 v1.4b Resume class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+No auxiliary output files.
+
+\tabular@text=\toks14
+\tabular@head=\toks15
+\tabular@tail=\toks16
+\@ta=\toks17
+\undefined@token=\toks18
+\sectionwidth=\dimen103
+\sectionskip=\skip43
+\resumewidth=\dimen104
+\@columnwidth=\dimen105
+\c@numberofcolumns=\count87
+)
+No file resume.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 10.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 34.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 34.
+
+Overfull \hbox (11.0581pt too wide) in paragraph at lines 52--58
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--58
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--58
+
+ []
+
+[1
+
+{C:/Users/Sricharan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (10.00316pt too wide) in paragraph at lines 85--89
+[][] 
+ []
+
+[2] ) 
+Here is how much of TeX's memory you used:
+ 310 strings out of 493921
+ 3632 string characters out of 3144863
+ 55198 words of memory out of 3000000
+ 3682 multiletter control sequences out of 15000+200000
+ 5511 words of font info for 20 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 29i,11n,19p,436b,183s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb>
+Output written on resume.pdf (2 pages, 87402 bytes).
+PDF statistics:
+ 29 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
