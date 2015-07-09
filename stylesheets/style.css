@@ -5,9 +5,9 @@ html, body {
   height: 100%; }
 
 body {
-  background: #be9b7b;
-  color: #303030;
-  font-family: 'Open Sans', sans-serif;
+  background: #360021;
+  color: #00ff00;
+  font-family: "Lucida Console", Monaco, monospace;
   font-weight: 400;
   font-size: 17px;
   line-height: 19px;
@@ -102,7 +102,7 @@ footer {
   box-sizing: border-box;
   width: 100%;
   max-width: 1100px;
-  background:#fff4e6;
+  background:#000000;
   margin: 40px auto 20px;
   font-size: 15px;
   border-radius: 7px;
@@ -155,7 +155,7 @@ footer {
 
 a, .as-link {
   text-decoration: none;
-  color: #537482;
+  color: #0000ff;
   line-height: 1.4em;
   display: inline-block;
   vertical-align: baseline;
@@ -168,7 +168,7 @@ a, .as-link {
   -o-transition: color 0.3s;
   transition: color 0.3s; }
   a.main, a:hover, .as-link.main, .as-link:hover {
-    color: #354a53;
+    color: #ff0000;
     background-image: url(/images/line.png);
     background-repeat: repeat-x;
     background-position: left bottom; }
