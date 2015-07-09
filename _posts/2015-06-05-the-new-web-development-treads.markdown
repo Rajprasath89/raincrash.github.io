@@ -3,8 +3,8 @@ author: sricharanchiruvolu
 comments: true
 date: 2015-06-05 09:58:22+00:00
 layout: post
-slug: the-new-web-development-treads
-title: The new web development treads
+slug: the-new-web-development-trends
+title: The new web development trends
 disqus: y
 categories:
 - Web dev
