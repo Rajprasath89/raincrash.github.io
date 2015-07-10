@@ -5,7 +5,7 @@ html, body {
   height: 100%; }
 
 body {
-  background: #360021;
+  background: url("http://1-background.com/images/stars-1/starry-night-star-seamless-background.jpg");
   color: #00ff00;
   font-family: "Lucida Console", Monaco, monospace;
   font-weight: 400;
@@ -23,7 +23,7 @@ body {
 }
 
 #whoami span.down{
-  color:  #854442;
+  color:  #c72d2d;
 }
 
 #go-back-home {
@@ -331,9 +331,9 @@ pre {
 
 code {
   font-size: 13px;
-  color: #888;
-  background: #f9f9f9;
-  padding: 0 4px; }
+  color: #fff;
+  background: #000;
+  padding: 0 6px; }
 
 .paging a {
   opacity: 0.15; }
