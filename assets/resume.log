@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.12.15)  3 JUL 2015 23:31
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.12.15)  11 JUL 2015 17:12
 entering extended mode
 **resume.tex
 (H:\sricharanized.github.io\assets\resume.tex
@@ -84,7 +84,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--58
 [1
 
 {C:/Users/Sricharan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (10.00316pt too wide) in paragraph at lines 85--89
+! Extra }, or forgotten \endgroup.
+l.85 ...lication on Free and Open Source Software}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Extra }, or forgotten \endgroup.
+l.87 ...r Amrita School of Engineering, Bangalore}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+Overfull \hbox (10.00316pt too wide) in paragraph at lines 94--98
 [][] 
  []
 
@@ -92,16 +111,16 @@ Overfull \hbox (10.00316pt too wide) in paragraph at lines 85--89
 Here is how much of TeX's memory you used:
  310 strings out of 493921
  3632 string characters out of 3144863
- 55198 words of memory out of 3000000
+ 54198 words of memory out of 3000000
  3682 multiletter control sequences out of 15000+200000
  5511 words of font info for 20 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 29i,11n,19p,436b,183s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,11n,19p,384b,183s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/P
 rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmsy10.pfb>
-Output written on resume.pdf (2 pages, 87402 bytes).
+Output written on resume.pdf (2 pages, 86920 bytes).
 PDF statistics:
  29 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
