@@ -5,8 +5,9 @@ html, body {
   height: 100%; }
 
 body {
-  background:#000; ;/*url("http://1-background.com/images/stars-1/starry-night-star-seamless-background.jpg");*/
-  color: #00ff00;
+  background:#ddd;
+  /* url("http://1-background.com/images/stars-1/starry-night-star-seamless-background.jpg");*/
+  color: #00f04;
   font-family: "Lucida Console", Monaco, monospace;
   font-weight: 400;
   font-size: 17px;
@@ -102,7 +103,7 @@ footer {
   box-sizing: border-box;
   width: 100%;
   max-width: 1100px;
-  background:#000000;
+  background:#fff;
   margin: 40px auto 20px;
   font-size: 15px;
   border-radius: 7px;
