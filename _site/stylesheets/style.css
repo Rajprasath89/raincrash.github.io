@@ -5,8 +5,7 @@ html, body {
   height: 100%; }
 
 body {
-  background:#ddd;
-  /* url("http://1-background.com/images/stars-1/starry-night-star-seamless-background.jpg");*/
+  background: url("http://1-background.com/images/stars-1/starry-night-star-seamless-background.jpg");
   color: #00f04;
   font-family: "Lucida Console", Monaco, monospace;
   font-weight: 400;
