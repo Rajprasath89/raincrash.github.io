@@ -1,29 +1,170 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
+
   <head>
-    <meta content='Scribble' property='og:title' />
-    <title>Wrong Place</title>
-    <link href='/images/fav.png' rel='shortcut icon'>
-    <link href='/stylesheets/style.css' rel='stylesheet' type='text/css' />
-    <link href='/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
-    <!-- - -->
-    <script src='/javascripts/jquery.js' type='text/javascript'></script>
-    <script src='/javascripts/stuff.js' type='text/javascript'></script>
-    <!-- - -->
-    <meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
-    <meta content='text/html; charset=utf-8' http-equiv='content-type' />
-    <meta content='http://muan.co/scribble' property='og:url' />
-    <meta content="A jekyll theme. Because I scribble." property='og:description' />
-    <meta content="blog" property="og:type" />
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      404: Page not found &middot; Bits, Pixels and Atoms
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/naringu.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/form.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="./public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="Mozilla RSS" href="feed.category.xml">
   </head>
-  <body>
-    <div class="center">
-    Don't Panic.<br/>
-    You're in a place which doesn't exists or removed permanently. It also got a fancy number and a name, "404: Page not found"(yawn!). 
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-61456015-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<body class="theme-6dd">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+      <img width="125" height="125" alt="A photo of ariestiyansyah" src="/images/head.png">
+    <p>Random tech musing by Sricharan Chiruvolu</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/categories/">Category Index</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/contact/">Contact</a>
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+
+    <a class="sidebar-nav-item" href="/assets/resume.pdf">Resume</a>
+    <span class="sidebar-nav-item">Version 2.0</span>
+  </nav>
+
+  <div class="sidebar-item">
     <p>
-      All you can do is go <a href="/" class="main" target="_top">Back</a>. Have a safe journey.
+      &copy; 2015. All rights reserved.
     </p>
+  </div>
+</div>
+
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Bits, Pixels and Atoms</a>
+            <small>Random tech musing by Sricharan Chiruvolu</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">404: Page not found</h1>
+  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/">Head back home</a> to try finding it again.</p>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+
+    <div align="center" class="footer">
+    <br />
+    <a href="https://twitter.com/TheRaincrash" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @TheRaincrash</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     <br/>
-    Sricharan
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Bits, Pixels and Atoms</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="mailto:sricharanized@gmail.com" property="cc:attributionName" rel="cc:attributionURL">Sricharan Chiruvolu</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License.</a><br/>
     </div>
   </body>
 </html>
+
