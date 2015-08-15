@@ -10,6 +10,8 @@ tags:
 - algorithms
 - genetic algorithms
 - bioinformatics
+categories:
+- bioinformatics
 ---
 
 Genetic Algorithms(GA) is a method of __breeding__ computer programs and solutions to optimization or search problems by means of simulated evolution. They are often used in fields such as engineering to create incredibly high quality products; utilizing their ability to search through a huge combination of parameters to find the (nearly) best match.
@@ -20,9 +22,9 @@ __Understanding the game of chance__
 
 Let's programmatically try to simulate the process of evolution that happens on earth. God creates a bunch of __organisms__. Each of them have a unique set of __genes__ (of course, they're randomly chosen). Let's name them as  the first __generation__. Each of the organisms have a unique trait that determines their survival, (we'll call it __fitness__). Now, say that organisms that are more fit tend to get together and reproduce and produce a second generation of offsprings. Also assume that the first generation die after reproduction (i.e. they no longer exist in the __population__). The second generation now reproduces and the cycle repeats.
 
-The GA keeps producing new generations until a __perfect organism__ is evolved or a certain thereshold (say 10000th generation of offsprings) is achieved.
+The GA keeps producing new generations until a __perfect organism__ is evolved or a certain threshold (say 10000th generation of offsprings) is achieved.
 
-__Approaching the _perfect_ solution__ 
+__Approaching the _perfect_ solution__
 
 A canonical GA requires the following components:
 
@@ -37,6 +39,6 @@ I would like to develop three GA solutions before I dive into parallelization of
 
 2. The second is the modelling of canonical GA. __Natural selection__ based.
 
-3. The third one is implementing the __travelling salesman problem__ using GA. 
+3. The third one is implementing the __travelling salesman problem__ using GA.
 
 Once this is done, I will work on the parallelization of the same using GPGPUs. So, stay tuned!
