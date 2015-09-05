@@ -1,0 +1,27 @@
+# Color for top bar, links, etc
+highlight_color: '#8a2be2'
+
+# Profile links on the left sidebar, leave blank to ignore
+social:
+  github: sricharanized
+  #bitbucket: sricharanized
+  # hacker_news: swanson
+  stackexchange: 348619
+  #stackoverflow: 348619
+  twitter: TheRainCrash
+  facebook: sricharanized
+  #tumblr: animalygifs
+  linkedin: sricharanchiruvolu
+  #gplus: 110552447039675960964
+  #gravatar: 86e6ff8f75f9daef42d53b7f8002fd95
+
+# "Hi, I'm _______"
+name: Sricharan
+email: mail@sricharan.xyz
+tagline: "Do your best, leave the rest"
+
+# Google Analytics key, leave blank to ignore
+# google_analytics_key: UA-xxxx-x
+
+# Toggle "Postings are my own" disclaimer in footer
+#show_disclaimer: true
