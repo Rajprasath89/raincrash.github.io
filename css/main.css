@@ -4,7 +4,7 @@
 }
 
 body{
-	font-family: 'Titillium Web', Helvetica, Arial, sans-serif;
+	font-family: sans-serif;
 	font-size: 16px;
 	line-height: 1.5;
 	font-weight: 300;
@@ -14,7 +14,7 @@ body{
 	-webkit-background-size: cover;
 	-o-background-size: cover;
 	-moz-background-size: cover;
-	position:absolute;overflow:hidden;
+	/*position:absolute;overflow:hidden;*/
 }
 
 h1, h3, h4, time{
