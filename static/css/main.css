@@ -27,7 +27,7 @@ body {
 }
 .navbar-default {
   background-color: #ffffff;
-  border-color: #ffffff;
+  /*border-color: #afafaf;*/
 }
 .navbar-default .navbar-brand {
   color: #6b6b6b;
