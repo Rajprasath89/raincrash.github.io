@@ -14,7 +14,7 @@ tags:
 - web development
 ---
 
-![slide5](https://sricharanized.files.wordpress.com/2015/06/slide5.jpg?w=300)
+![XKCD](http://imgs.xkcd.com/comics/xkcd_stack.png)
 
 I was introduced HTML in my 7th grade. I still remember the day when I created a 'click me' button in javascript and CSS. It was fascinating. We had a decent computer science lab in school, where we secretly accessed pokemoncrater.com which worked like magic. The world of web development and computer science changed a lot in these eight years. (see: [Moore's Law](http://en.wikipedia.org/wiki/Moore%27s_law))
 
