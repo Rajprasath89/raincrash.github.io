@@ -1,46 +1,38 @@
 ---
-layout: layout
+layout: default
 ---
 
-<div class="container">
-	<div class="blog-post">
-		<h3>
-		  <strong><a href="{{ page.url }}">{{ page.title }}</a></strong>
-		</h3>
+<noscript>
+	<style>
+
+		article .footnotes {
+			display: block;
+		}
+
+	</style>
+</noscript>
+
+<article>
+
+	<div class="center">
+		<h1>{{ page.title }}</h1>
+		<time>{{ page.date | date: '%B %-d, %Y' }}</time>
 	</div>
-	<div class="blog-title">
-		<h4>
-		{{ page.date | date: "%B %e, %Y" }}
-			&nbsp;&nbsp;
-			{% for tag in page.tags %}
-			 <span class="label label-success">{{ tag }}</span>
-			{% endfor %}
-		</h4>
-	</div>
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<div class="blogpost">
-			  {{ content }}
-			   <hr>
-			   <div class="related-posts">
-				   <h5>Related Posts</h5>
-				   {% for post in site.related_posts limit:3 %}
-						<div class="row">
-							 <div class="col-sm-4 col-md-4 col-lg-4">
-								 <h6 style="text-align: right">
-								 	{{ post.date | date: "%B %e, %Y" }}
-								 </h6>
-							 </div>
-							 <div class="col-sm-8 col-md-8 col-lg-8">
-								 <h6 style="text-align: left">
-								 	<strong><a href="{{ post.url }}">{{ post.title }}</a></strong>
-								 </h6>
-							 </div>
-						</div>
-					{% endfor %}
-			   </div>
-			</div>
-		</div>
-	</div>
-	{% include disqus.html %}
+
+	<div class="divider"></div>
+
+	{{ content }}
+
+</article>
+
+<div class="page-navigation">
+	{% if page.next.url %}
+    <a class="next" href="{{page.next.url}}" title="NEXT: {{page.next.title}}">&lt;&lt;</a>
+		<span> &middot; </span>
+  {% endif %}
+		<a class="home" href="{{site.baseurl}}/" title="Back to Homepage">Home</a>
+  {% if page.previous.url %}
+		<span> &middot; </span>
+    <a class="prev" href="{{page.previous.url}}" title="PREV: {{page.previous.title}}">&gt;&gt;</a>
+  {% endif %}
 </div>

@@ -1,10 +1,19 @@
-## Copyright & License
+# The Plain v2
 
-Copyright (C) 2015 - Released under the MIT License.
+A minimalist Jekyll theme that focuses on writing matters, made with passion for simplicity. A great, white clean theme for personal blog use. Made with [Sass](https://github.com/sass/sass) which automates the compression of the compiled CSS code, and cool **Jekyll layout** by [Anatol Broder](http://jch.penibelst.de/) for compressing the HTML code on-the-fly. Typeface used is [Karla](https://fonts.google.com/specimen/Karla?selection.family=Karla) from Google Fonts.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+[**Demo**](http://heiswayi.github.io/the-plain/)
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+You may refer [this post here](http://heiswayi.github.io/the-plain.html) for how-to-use instructions.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+### Screenshot (v2)
+
+![Screenshot](http://i.imgur.com/btWdSS0.png)
+
+### Credits
+
+This theme is based on Leonard Lamprecht's original [Jekyll theme](https://github.com/leo/leo.github.io).
+
+### License
+
+[MIT](LICENSE.md)
