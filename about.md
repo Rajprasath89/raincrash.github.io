@@ -5,8 +5,6 @@ title: About
 
   <a class="home" href="{{site.baseurl}}/" title="Back to Homepage">Home</a>
 
-> As of March 2016, I'm a Technology Intern at **Runnr**, a hyper-local logistics start-up in Bangalore, India. I will be graduating with a Bachelor's degree in Computer Science by May 2016.
-
 Hello.
 
 I'm Sricharan Chiruvolu. I make stuff that work on computers.
