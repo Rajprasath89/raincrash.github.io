@@ -7,6 +7,8 @@ slug: advice-for-students-applying-to-google-summer-of-code-2016
 title: Advice for students applying to Google Summer of Code 2016
 wordpress_id: 169
 disqus: y
+tags:
+- gsoc
 categories:
 - GSoC
 ---
