@@ -6,13 +6,10 @@ layout: post
 slug: copyleft-physics-engine
 disqus: y
 title: 'Copyleftgames - Physics Engine'
-categories:
-- gsoc
 tags:
 - computer graphics
 - games
 - graphics
-- gsoc
 - physics
 - copyleftgames
 ---
