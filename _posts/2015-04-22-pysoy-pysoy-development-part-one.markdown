@@ -7,14 +7,11 @@ slug: pysoy-pysoy-development-part-one
 title: '[Pysoy] - Pysoy Development, Part One'
 disqus: y
 wordpress_id: 178
-categories:
-- GSoC
 tags:
 - computer graphics
 - game
 - game engine
 - google
-- gsoc
 - programming
 - pysoy
 - summer
