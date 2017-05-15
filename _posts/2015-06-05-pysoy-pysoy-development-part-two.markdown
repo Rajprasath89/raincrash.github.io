@@ -7,11 +7,8 @@ slug: pysoy-pysoy-development-part-two
 title: '[Pysoy] - Pysoy Development, Part Two'
 wordpress_id: 273
 disqus: y
-categories:
-- GSoC
 tags:
 - computer graphics
-- gsoc
 ---
 
 A long time ago, I have written an introductory [article on pysoy](/gsoc/2015/04/22/pysoy-pysoy-development-part-one/), now after a few weeks here's the _Part Two_.
