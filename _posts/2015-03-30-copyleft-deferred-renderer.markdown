@@ -6,13 +6,10 @@ layout: post
 slug: copyleft-deferred-renderer
 disqus: y
 title: 'Copyleftgames - Deferred Renderer'
-categories:
-- gsoc
 tags:
 - computer graphics
 - games
 - graphics
-- gsoc
 - deferred renderer
 - copyleftgames
 ---
