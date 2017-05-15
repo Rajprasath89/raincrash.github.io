@@ -7,12 +7,9 @@ slug: week-0-gsoc15-vala-genie-wrestle-example-fixing-and-welcome-packs
 title: '[GSoC] week 0: Vala/ genie wrestle'
 disqus: y
 wordpress_id: 203
-categories:
-- GSoC
 tags:
 - foss
 - genie
-- gsoc
 - pysoy
 - summer
 - vala
