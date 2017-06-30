@@ -30,6 +30,13 @@ a {
     margin: 30px 0;
   }
 }
+
+a:hover{
+  background-color: yellow;
+}
+.center{
+  text-align: center;
+}
 mark {
   background: #fffc76;
   padding: 0 5px;
@@ -251,7 +258,9 @@ iframe {
   width: 100%;
 }
 article {
-  max-width: 500px;
+  text-align: justify;
+  padding-left: 20px;
+  padding-right: 40px;
   margin: 0 auto;
   .title {
     line-height: 1.4em;
@@ -335,7 +344,7 @@ article {
   }
 }
 section {
-  max-width: 500px;
+  max-width: 900px;
   margin: 0 auto 50px auto;
   ul {
     list-style: none;

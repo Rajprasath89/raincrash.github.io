@@ -3,8 +3,6 @@ layout: page
 title: About
 ---
 
-  <a class="home" href="{{site.baseurl}}/" title="Back to Homepage">Home</a>
-
 Hello.
 
 I'm Sricharan Chiruvolu. I make stuff that work on computers.
