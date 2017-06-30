@@ -13,10 +13,6 @@ layout: default
 		<a href="/pages/resume">resume</a>
 	</h3>
 
-	<h5 class="center">
-		<a href="mailto:sricharan.chiruvolu@gmail.com">Shoot an email</a>
-	</h5>
-
 
 	<div class="center">
 		{% include twitter.html %}
