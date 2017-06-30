@@ -4,7 +4,7 @@ comments: true
 date: 2014-12-13 14:58:18+00:00
 layout: post
 slug: writing-kernel-modules-101-one-what-is-a-kernel-module
-title: 'Writing Kernel Modules 101: : What is a Kernel Module?'
+title: 'Kernel Modules 101: : What is a Kernel Module?'
 disqus: y
 wordpress_id: 71
 categories:

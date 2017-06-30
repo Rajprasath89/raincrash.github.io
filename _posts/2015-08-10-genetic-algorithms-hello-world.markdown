@@ -4,7 +4,7 @@ comments: true
 date: 2015-08-10 10:00:00+00:00
 layout: post
 slug: genetic-algorithms-hello-world
-title: A "Hello World!" to the genetic algorithms
+title: Genetic Algorithms for a novice
 disqus: y
 tags:
 - algorithms
@@ -33,12 +33,10 @@ A canonical GA requires the following components:
 - A __mutation function__ that changes a candidate solution _slightly_, in an attempt to obtain a better candidate.
 
 
-I would like to develop three GA solutions before I dive into parallelization of GAs.
+To understand the concepts better, try developing these three GA solutions before you dive into parallelization of GAs.
 
 1. The first one would be a simple GA to arrive at an expression of additions/ subtractions for a given number. (e.g. Input = 27, Output = 2 + 24 - 5 + 6).
-
 2. The second is the modelling of canonical GA. __Natural selection__ based.
-
 3. The third one is implementing the __travelling salesman problem__ using GA.
 
-Once this is done, I will work on the parallelization of the same using GPGPUs. So, stay tuned!
+Once this is done, you can work on the parallelization of the same using GPGPUs.

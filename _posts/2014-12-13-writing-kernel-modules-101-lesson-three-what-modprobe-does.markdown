@@ -4,7 +4,7 @@ comments: true
 date: 2014-12-13 15:45:14+00:00
 layout: post
 slug: writing-kernel-modules-101-lesson-three-what-modprobe-does
-title: 'Writing Kernel Modules 101:: What modprobe does?'
+title: 'Kernel Modules 101:: What modprobe does?'
 disqus: y
 wordpress_id: 80
 categories:

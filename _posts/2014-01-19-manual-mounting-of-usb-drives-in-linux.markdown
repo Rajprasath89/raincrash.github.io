@@ -8,28 +8,32 @@ title: Manual Mounting of USB drives in Linux
 wordpress_id: 148
 ---
 
-When a USB doesn't mount automatically, you can manually mount it. For this you need to login as root (superuser) and do the following process.  
-  
-Steps:  
+When a USB doesn't mount automatically, you can manually mount it. For this you need to login as root (superuser) and do the following process.
 
+  * Login as root. 
+  * Check if the computer have recognized the USB you plugged in by the **lsusb** command. 
 
-  * Login as Root. 
-  * Check if the computer have recognized the USB you plugged in by the** lsusb** command. 
-    
-    cs50/home/sricharan # lsusb 
+``` cs50/home/sricharan># lsusb ```
 
   * Create a  directory where your USB drive will be mounted.
-    
-    cs50/home/sricharn # cd Desktop/<br></br>cs50/home/sricharan/Desktop # mkdir flash<br></br>cs50/home/sricharn/Desktop #<br></br>
+
+``` cs50/home/sricharan># cd Desktop ```
+
+```  cs50/home/sricharan/Desktop# mkdir flash ```
+
+```  cs50/home/sricharn/Desktop # ```
 
   * We need to get the appropriate device which is attached to your flash drive. To do this, simply issue the following command in the same terminal window.  
-**dmesg | grep -i “SCSI device”**
     
-    cs50/home/sricharan/Desktop # dmesg | grep -i "SCSI device"
+``` cs50/home/sricharan/Desktop># dmesg | grep -i "SCSI device" ```
 
   * When you’ve found the correct device, Usually it would be sda, sdb, sdc, etc.  Enter the following command into the same terminal window:
     
-    cs50/home/sricharan/Desktop # pwd<br></br>/home/sricharan/Desktop<br></br>cs50/home/sricharan/Desktop # mount -t vfat -o uid=jason,gid=users /dev/sda /home/sricharan/Desktop/flash<br></br>cs50/home/sricharan/Desktop #
+``` cs50/home/sricharan/Desktop># pwd /home/sricharan/Desktop ```
+
+``` cs50/home/sricharan/Desktop># mount -t vfat -o uid=jason,gid=users /dev/sda /home/sricharan/Desktop/flash ```
+
+``` cs50/home/sricharan/Desktop># ```
 
   
   

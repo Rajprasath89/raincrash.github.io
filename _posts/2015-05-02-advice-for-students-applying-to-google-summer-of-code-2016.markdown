@@ -3,8 +3,8 @@ author: sricharanchiruvolu
 comments: true
 date: 2015-05-02 18:15:00+00:00
 layout: post
-slug: advice-for-students-applying-to-google-summer-of-code-2016
-title: Advice for students applying to Google Summer of Code 2016
+slug: advice-for-students-applying-to-google-summer-of-code
+title: Advice for students applying to Google Summer of Code
 wordpress_id: 169
 disqus: y
 tags:
@@ -14,17 +14,7 @@ categories:
 ---
 
 
-
-### GSoC'15 Selection - How this summer is shaping up to be the best ever!
-
-_Some good news!_
-
-My proposal for Copyleft Games has been accepted for the prestigious [Google Summer of Code](https://www.google-melange.com/gsoc/homepage/google/gsoc2015) this year. The upcoming summer would be the best one I ever had. Google Summer of Code is a global program that offers students stipends to write code for open source projects.  I will be contributing for [Pysoy](http://pysoy.org/).
-
-
-
 ### What does it take to get accepted for GSoC?
-
 
 
 I would love to share my experience on what it takes to get into GSoC. I hope it would help newcomers to get into the world of FOSS.
@@ -74,8 +64,6 @@ Acceptance/ rejection into the programme isn't an indication of your coding skil
 
 Just do your best and leave the rest!
 
-_I am fairly new to GSoC as this will be my first experience, all my views/opinions may not be authentic for some._
-
-_I am planning to blog my progress at least once in two weeks. I thought that would be a good way to gauge progress on my project. So stay tuned!_
+_I am fairly new to GSoC mentoring as this will be my first experience, all my views/opinions may not be authentic for some._
 
 

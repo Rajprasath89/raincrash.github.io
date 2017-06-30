@@ -4,7 +4,7 @@ comments: true
 date: 2014-12-14 14:09:50+00:00
 layout: post
 slug: writing-kernel-modules-lesson-five-the-macros
-title: 'Writing Kernel Modules::The Macros'
+title: 'Kernel Modules::The Macros'
 disqus: y
 wordpress_id: 105
 categories:

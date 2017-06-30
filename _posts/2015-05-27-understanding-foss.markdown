@@ -15,17 +15,12 @@ tags:
 - Open source
 ---
 
-_So, I'm hooked up with Quora these days.  I came across this question,_
 
-
-
-<blockquote>"How can I understand the idea of the Open Source movement better? - I want to know what motivated you to move to using Open Source-d technologies, Open Source-d stacks, and anything Open Source related ?Also, I want to understand how the Open Source community works, and why, as a CS student, should I at least be familiar with the idea of Open Source."</blockquote>
-
+> **How can I understand the idea of the Open Source movement better?**
+  I want to know what motivated you to move to using Open Source-d technologies, Open Source-d stacks, and anything Open Source related ?Also, I want to understand how the Open Source community works, and why, as a CS student, should I at least be familiar with the idea of Open Source. -- Anonymous question on _Quora_
 
 
 I spent a decent amout of time writing the answer (and I loved what I wrote). I thought my answer should definitely be on my blog. Here it goes.
-
-[![FOSS-590x300](https://sricharanized.files.wordpress.com/2015/05/foss-590x300.jpg?w=300)](https://sricharanized.files.wordpress.com/2015/05/foss-590x300.jpg)
 
 **Why use open-source technology?**
 

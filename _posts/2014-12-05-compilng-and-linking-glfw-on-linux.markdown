@@ -23,7 +23,7 @@ To successfully build and run OpenGL programs that includes GLFW libraries on my
 
 
 	
-  * Update the Graphics drivers - Go to **System Settings** >>** Software and Updates** >>** additional drivers **and install the required drivers.
+  * Update the Graphics drivers - Go to **System Settings** >> **Software and Updates** >> **additional drivers** and install the required drivers.
 
 	
   * Download the latest version of GLFW from the website [http://www.glfw.org.](http://www.glfw.org)
@@ -35,43 +35,24 @@ To successfully build and run OpenGL programs that includes GLFW libraries on my
   * For example,
 
     
-    cd glfw-3.0.4
-
-
-
+    `cd glfw-3.0.4`
 
 	
   * Get the sudo privileges using
-
-    
-    sudo -i
-
-
-
+   
+    `sudo -i`
 
 	
   * Now, run the following command,
 
     
-     cmake -G "Unix Makefiles".
+     `cmake -G "Unix Makefiles"`
 
 
-Note that you need to have cmake and various other **build dependencies** installed. Try using `sudo apt-get build-dep glfw3` or manually install the required dependencies.
+> Note that you need to have cmake and various other **build dependencies** installed. Try using `sudo apt-get build-dep glfw3` or manually install the required dependencies.
 
 	
-  * Then, run
-
-    
-    make
-
-
-and then
-
-    
-    make install
-
-
-
+  * Then, run `make` and then `make install`.
 
 	
   * You have successfully build GLFW!
@@ -81,27 +62,15 @@ and then
 
 	
   * To execute this file,say main.cpp, you require various **development libraries** like GL, GLU X11, Xrandr e.t.c. Now link the required libraries,
-	
 
+  `g++ -std=c++11 -Wall -o  main main.cpp -lglfw3 -lGLU -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi`
     
-    g++ -std=c++11 -Wall -o  main main.cpp -lglfw3 -lGLU -lGL -lX11 -lXxf86vm -lXrandr -lpthread -lXi
-    
-
-
-
-
 	
   * Note that the linking is done sequentially, so the order is important.
-
 	
   * Now execute the program,
-
     
-    ./main
-
-
-
-
+    `./main`
 	
   * If everything's OK, an empty window must be displayed.
 

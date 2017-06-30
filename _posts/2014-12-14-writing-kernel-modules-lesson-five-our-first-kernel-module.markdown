@@ -4,7 +4,7 @@ comments: true
 date: 2014-12-14 07:43:57+00:00
 layout: post
 slug: writing-kernel-modules-lesson-five-our-first-kernel-module
-title: 'Writing Kernel Modules:: Our first kernel module'
+title: 'Kernel Modules:: Our first kernel module'
 disqus: y
 wordpress_id: 97
 categories:

@@ -4,7 +4,7 @@ comments: true
 date: 2014-12-15 08:38:28+00:00
 layout: post
 slug: writing-kernel-modules-lesson-five-multiple-file-modules-argument-passing
-title: 'Writing Kernel Modules::Multiple file modules'
+title: 'Kernel Modules::Multiple file modules'
 disqus: y
 wordpress_id: 117
 categories:

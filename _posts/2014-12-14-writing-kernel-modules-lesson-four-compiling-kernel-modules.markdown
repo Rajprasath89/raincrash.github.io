@@ -4,7 +4,7 @@ comments: true
 date: 2014-12-14 06:21:05+00:00
 layout: post
 slug: writing-kernel-modules-lesson-four-compiling-kernel-modules
-title: 'Writing Kernel Modules::Compiling Kernel Modules'
+title: 'Kernel Modules::Compiling Kernel Modules'
 disqus: y
 wordpress_id: 91
 categories:
