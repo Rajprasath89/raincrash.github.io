@@ -19,7 +19,7 @@ title: Personal Projects
                   </div>
                   <div>
                     <p>
-                      A Facebook messenger based health assistant. Takes care of daily calorie intake, schedules water intake, recognises and recommends food based on an image. Special mentioned at Sequoia::Hack 2016.
+                      A Facebook messenger based health assistant. Takes care of daily calorie intake, schedules water intake, recognises and recommends food based on an image. 
                     </p>
                   </div>
       </li>
