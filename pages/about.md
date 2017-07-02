@@ -3,6 +3,7 @@ layout: page
 title: About
 ---
 
+
 Hello.
 
 I'm Sricharan Chiruvolu. I make stuff that work on computers.
@@ -17,7 +18,9 @@ I usually go by **{{ site.github_username }}** on the internet.
 
 I pass most of my leisure time with my Kindle PW3. I also read eastern manga and western comics. I do watch a lot of anime.
 
-
- Feel free to contact me at `sricharanized at gmail dot com`.
+Feel free to contact me at `sricharanized at gmail dot com`.
 
 Also, download my résumé or view it online <a href="{{ site.baseurl }}resume" >here</a>.
+
+
+<iframe src="https://ghbtns.com/github-btn.html?user=raincrash&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>

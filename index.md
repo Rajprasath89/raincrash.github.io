@@ -11,6 +11,7 @@ layout: default
 		<a href="/pages/projects">projects</a>  | 
 		<a href="/pages/contact">contact</a> | 
 		<a href="/pages/resume">resume</a>
+		<br/>
 	</h3>
 
 
