@@ -19,4 +19,5 @@ layout: default
 		{% include twitter.html %}
 	</div>
 
+
 </section>

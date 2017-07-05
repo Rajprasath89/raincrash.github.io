@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/raincrash
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://sricharan.net
+  * I am raincrash (https://keybase.io/raincrash) on keybase.
+  * I have a public key with fingerprint A6C3 1FE2 CF8D 3564 ACBE  50EA B599 6354 24ED C530
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01011ab72d33d390668b2e506a149e310e4fed343a62ea2c20bcf98761410db70d020a",
+            "fingerprint": "a6c31fe2cf8d3564acbe50eab599635424edc530",
+            "host": "keybase.io",
+            "key_id": "b599635424edc530",
+            "kid": "01011ab72d33d390668b2e506a149e310e4fed343a62ea2c20bcf98761410db70d020a",
+            "uid": "0c6019fe6772b1ab413b8b479396fc19",
+            "username": "raincrash"
+        },
+        "service": {
+            "hostname": "sricharan.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1499268398,
+    "expire_in": 157680000,
+    "prev": "83a5a5345f4172df45f125aa523782f5496186608c156cd59e79b3146924b0d5",
+    "seqno": 5,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.72
+Comment: https://keybase.io/crypto
+
+yMIsAnicrVJbSBVBGD6nNFGIriAl2XEjiDgdd3Z2ZndPkJURBUF0OYVRHWdnZz2b
+unvcs2pZWnaBshsYRIVBBV21xB4i6SG7PFQKRkolBBX6oEihVFYU0WyXtx6bl5n5
+5/u++b6f/+HE8YGs4MMVz2a33WwcC3beO1UZKNqSHtkp6I6xQ4juFErZr42VGSzl
+xUstQ4gKIhABILoiGRAaUBMxVnWJIRETIGsMApHJJjOgDAmWGJGoJOrU1FQFAxmI
+hq6IhiiJRAgLpmWXMDfpWrbHZQmmEJhMoqZqQIRlQnUuyoiONA1DJEsyMyiCIicm
+nJTP4OZ0kmIRy+E1fon/svcP/H/2XflbjmIRaCbDiiLpXFcGUFd1WdGghk0KNB+Y
+Yq5NyhlHu8SyqUtSCaE2LPBylUWZ31k/yh9IyrVogrjEjtjM4+yk63gOdcr4U8Lz
+klGf6e1I+tBqpsf/iMR1yzZ4Izmhirkpy7GFKOBI6lm+Ko+mSViFmhoW2Pak5bK4
+5SOQglWRL/8bVsUlVUgQQVBGpgx4i0x+ABIiBElQUSUTyRoGKsaiSgHC1EAaUzQd
+AhlrkqyLBhL8WBW2I0QRt0lK/EBWiU28SpcJtfc7NqcFglmBCenj/AELZGVO/jt2
+h2jGj7wj3cnePW9i144tqpozPFI3nN1Ej589M7aqLS1wctqCkccnSic04bb84UPn
+dj0aKfge24Sfzsyb0fcyb/+30NCP+IZg29yi3IvriyP9oa4nZbNQy4MDLRu/tG8t
+GBx4P/E5joU+RF8HzeHFQ5fESEbFippJoHWdPjXUmDMlY+HXodzlscuBS/TF+eo1
+DZ9u1WduirYvefvhRFdi+b4Ce3dPTvNQw7Ql4zqiB250j67+eHfS6ON6Wr+t5kqw
+qfJLc1lrYfhwfl1o8OD1VwOfP83vjfWkLxtYml3c+W7ZvDvtk0/froax/sKL4ZLC
+lTntfc39V2uOfj5fM9CYf2Pt9AZ0zCm/sPcnsuk/Mw==
+=SN2v
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/raincrash
+
+==================================================================

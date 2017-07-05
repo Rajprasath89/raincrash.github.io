@@ -3,6 +3,7 @@ body {
   padding: 20px;
   margin: 0;
   font-weight: 400;
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   @media (min-width: 992px) {
@@ -72,6 +73,13 @@ span[data-note] {
     }
   }
 }
+
+.about{
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  font-size:   14pt;
+} 
+
 .note {
   background: #f8f8f8;
   border: 1px solid #ddd;

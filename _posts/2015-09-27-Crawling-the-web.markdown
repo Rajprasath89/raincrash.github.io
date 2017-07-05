@@ -207,7 +207,7 @@ Next, for every iteration, we append the new links found in that depth to depth_
       
 Once you put that over, you can change the depth in the main() function to see the lists of apps and their details printed on the console.
 
-<blockquote>Note that many websites out there would blacklist your ip address if they see that you're crawling very fast and prevent you from accessing get requests. It's safer to put in a little bit of wait or a sleep time to kind of space things out a little bit.</blockquote>
+> Note that many websites out there would blacklist your ip address if they see that you're crawling very fast and prevent you from accessing _get_ requests. It's safer to put in a little bit of _wait_/_sleep_ time.
 
 
 We'll import time module and sleep for a second between every iteration.
