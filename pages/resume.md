@@ -1,5 +1,9 @@
 ---
-layout: fullpage
+layout: default
+title: About
 ---
 
-<iframe width="100%" height="100%" frameborder="0" src="https://docs.google.com/document/d/1ys_igRW7YjfDQgcGgvucDPIPboPMm_Q-Ih6No_mzYj8/pub?embedded=true"></iframe>
+
+<div class="about">
+Request my latest resume at <strong>sricharan.chiruvolu at gmail dot com</strong> or checkout my <a href="http://linkedin.com/in/sricharanchiruvolu">linkedin page</a>.
+</div>
