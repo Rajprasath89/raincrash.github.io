@@ -19,7 +19,7 @@ I make stuff that work on computers.</p>
 
 <p>I pass most of my leisure time with my Kindle PW3. I also read eastern manga and western comics. I do watch a lot of anime.</p>
 
-<p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also e-mail me at <strong>sricharan.chiruvolu at gmail dot com</strong>.</p>
+<p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also e-mail me at <a href="http://scr.im/raincrash">s...@g...l.com</a></p>
 
 
 <iframe src="https://ghbtns.com/github-btn.html?user=raincrash&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
