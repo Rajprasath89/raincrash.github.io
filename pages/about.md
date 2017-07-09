@@ -9,7 +9,7 @@ title: About
 
 Hello.
 
-<p>I'm Sricharan Chiruvolu. :)
+<p>I'm Sricharan. :)
 <br/>
 I make stuff that work on computers.</p>
 
