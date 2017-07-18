@@ -14,7 +14,7 @@ Hello.
 I make stuff that work on computers.</p>
 
 
-<p>I'm currently a Mobile and UX consultant at <a href="http://sap.com">SAP</a>. Previously, I was a Software Development Engineer at <a href="http://runnr.in">Runnr</a>. I'm interested in the fields of Computer Graphics and machine learning.</p>
+<p>I'm currently a Mobile and UX consultant at <a href="http://sap.com">SAP</a>. Previously, I was a Software Development Engineer at <a href="http://runnr.in">Runnr</a>. My primary areas these days are in full stack web development, computer graphics and machine learning.</p>
 
 
 <p>I pass most of my leisure time with my Kindle PW3. I also read eastern manga and western comics. I do watch a lot of anime.</p>
