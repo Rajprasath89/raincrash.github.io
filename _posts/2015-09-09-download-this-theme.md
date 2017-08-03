@@ -3,7 +3,7 @@ title: Download this Theme
 updated: 2015-09-09 10:38
 ---
 
-I have modified the **the-plain** theme by Heiswayi, to make give it a _stale_ look.
+I have modified the **the-plain** theme by Heiswayi, to give it a _stale_ look.
 
 This is a minimalist Jekyll theme built to focus on writing stuffs that matter. Suitable to be used as a personal blog!
 
