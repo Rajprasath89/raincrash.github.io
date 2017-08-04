@@ -47,13 +47,13 @@
   crossorigin="anonymous"></script>
 <script type="text/javascript">
  $.ajax({
-            type: "POST", 
-            dataType: 'jsonp',
-            url: "http://dynamic.xkcd.com/api-0/jsonp/comic/",
-            async: false,
-            contentType: "application/json; charset=utf-8",
+            type: "GET", 
+            dataType: 'json',
+            url: "https://xkcd.com/info.0.json",
+            crossOrigin: true,
             success: function (msg) { 
-                $('.xkcd-img').prepend("<img " + "src=" + msg.img + " />")           
+            	console.log(msg)
+            	$('.xkcd-img').prepend("<img " + "src=" + msg.img + " />")
             }
  });
 </script>
