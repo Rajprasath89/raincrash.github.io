@@ -3,6 +3,7 @@ layout: default
 ---
 
 
+
 <section>
 
 	<h2 class="center">
@@ -15,11 +16,9 @@ layout: default
 	</h2>
 
 </section>
-
-
-<div class="xkcd-container">
-	<div class="xkcd-img center"></div>
-	<div class="center">
-		<small>Thanks for visiting. Enjoy the latest XKCD comic. &copy; <a href="http://xkcd.com">Folk at XKCD</a>.</small>
-	</div>
+<div class="center">
+<!-- <script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"></script>
+<small><i><a href="https://www.brainyquote.com/quotes_of_the_day.html" target="_blank" rel="nofollow">more Quotes</a></i></small> -->
+<!-- <img src="https://source.unsplash.com/user/erondu/800x600"><br/>
+<small>&copy; Upsplash.com</small> -->
 </div>

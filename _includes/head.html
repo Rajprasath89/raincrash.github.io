@@ -41,19 +41,3 @@
 	</script>
 
 {% endif %}
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
-<script type="text/javascript">
- $.ajax({
-            type: "GET", 
-            dataType: 'json',
-            url: "https://xkcd.com/info.0.json",
-            crossOrigin: true,
-            success: function (msg) { 
-            	console.log(msg)
-            	$('.xkcd-img').prepend("<img " + "src=" + msg.img + " />")
-            }
- });
-</script>
