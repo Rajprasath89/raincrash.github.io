@@ -4,12 +4,15 @@ layout: default
 
 
 
+<img id="profile" src="/assets/profile.gif" width="200" height="200">
+
 <section>
+
 
 	<h2 class="center">
 		<a href="/pages/about">about</a> . 
 		<a href="/pages/archives">posts</a> .
-		<a href="/pages/projects">projects</a>  .
+		<a href="/pages/projects">projects</a>.
 		<a href="/pages/contact">contact</a> .
 		<a href="/pages/resume">resume</a>
 		<br/>
