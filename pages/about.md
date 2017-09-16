@@ -7,20 +7,26 @@ title: About
 
 <img id="profile" src="/assets/profile.jpg" width="250" height="250">
 
+
 Hello.
 
-<p>I'm Sricharan. :)
+<p>I'm Sricharan.
 <br/>
-I make stuff that work on computers.</p>
+I make stuff that work on computers. </p>
 
 
-<p>I'm currently a Mobile and UX consultant at <a href="http://sap.com">SAP</a>. Previously, I was a Software Development Engineer at <a href="http://runnr.in">Runnr</a>. I'm interested in full stack web development, computer graphics, HCI and machine learning.</p>
+<p>I'm currently a Mobile and UX consultant at <a href="http://sap.com">SAP</a>. Previously, I was a Software Development Engineer and Research Intern at <a href="http://runnr.in">Runnr</a>, which is now acquired by <a href="https://www.zomato.com">Zomato</a>.</p>
 
-<p>I pass most of my leisure time with my Kindle PW3. I also read eastern manga and western comics. I do watch a lot of anime.</p>
+<p>I'm also a Chapter Leader for <a href="http://isocblr.org">Internet Society India Bangalore</a>.</p>
 
-<p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also reach me via e-mail at <a href="http://scr.im/raincrash">s...@g...l.com</a>.</p>
+<p>I pass most of my leisure time with my Kindle PW3. I love read eastern manga and western comics. I do watch a lot of anime.</p>
+
+<p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also reach me via e-mail at <img src="/assets/email.png" height="18">.</p>
 
 
-<iframe src="https://ghbtns.com/github-btn.html?user=raincrash&type=follow&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+</div>	
 
-</div>
+
+
+
+
