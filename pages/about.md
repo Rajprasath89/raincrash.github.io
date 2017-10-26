@@ -1,12 +1,12 @@
 ---
-layout: default
+layout: about
 title: About
 ---
 
 <div class="about">
 
-<img id="profile" src="/assets/profile.jpg" width="250" height="250">
 
+<img id="profile" src="/assets/profile.gif" width="200" height="200">
 
 Hello.
 
@@ -24,7 +24,18 @@ I make stuff that work on computers. </p>
 <p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also reach me via e-mail at <img src="/assets/email.png" height="18">.</p>
 
 
-</div>	
+<div style="float:left;">
+{% include twitter.html %}
+</div>
+<div style="float:right; font-size: 12px !important">
+{% include goodreads.html %}
+
+</div>
+
+
+
+
+
 
 
 
