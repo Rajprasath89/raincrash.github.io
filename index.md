@@ -18,6 +18,7 @@ layout: default
 		<a href="https://twitter.com/rain_crash" target="_blank">twitter</a> . 
 		<a href="https://linkedin.com/in/sricharanchiruvolu" target="_blank">linkedin</a> .
 		<a href="https://www.quora.com/profile/Sricharan" target="_blank">quora</a> .
+		<a href="https://www.medium.com/@sricharan" target="_blank">medium</a> .
 		<a href="https://fb.com/sricharanized" target="_blank">facebook</a>
 		<br/>
 	</h3>
