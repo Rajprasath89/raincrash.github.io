@@ -21,11 +21,29 @@ I make stuff that work on computers. </p>
 
 <p>I pass most of my leisure time with my Kindle PW3. I love read eastern manga and western comics. I do watch a lot of anime.</p>
 
-<p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also reach me via e-mail at <img src="/assets/email.png" height="18">.</p>
+<p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also reach me via the contact form below.</p>
 
 <p>Cheers!</p>
+<br/>
 
-<hr/>
+
+<div class="contact-me">
+	<div class="container">
+  <form action="mailto:sricharan.chiruvolu@gmail.com?subject=Hello! Sricharan." method="post" enctype="text/plain">
+    <label for="fname">Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
+</div>
+	
+</div>
+
+<!-- <hr/> -->
 
 
 <div style="float:left;">
@@ -33,8 +51,9 @@ I make stuff that work on computers. </p>
 </div>
 <div style="float:right; font-size: 12px !important">
 {% include goodreads.html %}
-
 </div>
+<br/>
+
 
 
 
