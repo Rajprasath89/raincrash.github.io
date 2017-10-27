@@ -31,10 +31,10 @@ I make stuff that work on computers. </p>
 	<div class="container">
   <form action="mailto:sricharan.chiruvolu@gmail.com?subject=Hello! Sricharan." method="post" enctype="text/plain">
     <label for="fname">Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <input type="text" id="fname" name="Name" placeholder="Your name..">
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    <label for="subject">Message</label>
+    <textarea id="message" name="Message" placeholder="Write something.." style="height:200px"></textarea>
 
     <input type="submit" value="Submit">
 
