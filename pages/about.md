@@ -23,6 +23,10 @@ I make stuff that work on computers. </p>
 
 <p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also reach me via e-mail at <img src="/assets/email.png" height="18">.</p>
 
+<p>Cheers!</p>
+
+<hr/>
+
 
 <div style="float:left;">
 {% include twitter.html %}
