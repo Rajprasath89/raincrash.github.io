@@ -23,7 +23,7 @@ layout: default
 		<br/>
 	</h3>
 	<h2 class="center">
-		<img src="/assets/email.png" height="24">
+		<img style="border: 1px solid blue;" src="/assets/email.png" height="24">
 	</h2>
 </section>
 <div class="center">
