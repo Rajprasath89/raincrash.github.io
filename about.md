@@ -23,7 +23,7 @@ I make stuff that work on computers. </p>
 
 <p>I pass most of my leisure time with my Kindle PW3. I love read eastern manga and western comics. I do watch a lot of anime.</p>
 
-<p>These days, I usually hangout at <a href="http://devup.in">Devup</a>. You can also reach me via the contact form below.</p>
+<p>The fastest way to get in touch is via the contact form below.</p>
 
 <p>Cheers!</p>
 <br/>
