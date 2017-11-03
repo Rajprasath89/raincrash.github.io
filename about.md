@@ -42,11 +42,6 @@ I make stuff that work on computers. </p>
 
   </form>
 </div>
-	
-</div>
-
-<!-- <hr/> -->
-
 
 <div style="float:left;">
 {% include twitter.html %}
@@ -55,6 +50,13 @@ I make stuff that work on computers. </p>
 {% include goodreads.html %}
 </div>
 <br/>
+	
+</div>
+
+<!-- <hr/> -->
+
+
+
 
 
 
