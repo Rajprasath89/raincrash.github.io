@@ -8,6 +8,23 @@ title: Personal Projects
   <p class="center"><a class="home" href="{{site.baseurl}}/" title="Back to Homepage">Home</a></p>
 
 <h2>Notable Projects</h2>
+<h3>2017 &#172;</h3>
+  <ul>
+      <li>
+                  <div class="post-date">
+                    <span>IOS | Name entity recognition | Flask | OpenGL </span>
+                  </div>
+                  <div class="title">
+                    <a href="https://devpost.com/software/chemstreet">ChemStreet</a>
+                  </div>
+                  <div>
+                    <p>
+                      An IOS app that extracts chemical names from a large text in real-time and renders the molecules/proteins in an AR environment. Built on TensorFlow and IOS ArKit.
+                    </p>
+                  </div>
+      </li>
+    </ul>
+
 <h3>2016 &#172;</h3>
   <ul>
       <li>

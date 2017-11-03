@@ -5,7 +5,7 @@ layout: default
 
 <section>
 	<h1 class="center">
-		<a href="/pages/about">about</a> . 
+		<a href="/about">about</a> . 
 		<a href="/pages/archives">posts</a> .
 		<a href="/pages/projects">projects</a> .
 		<a href="/pages/resume">resume</a>

@@ -17,6 +17,8 @@ I make stuff that work on computers. </p>
 
 <p>I'm currently a Mobile and UX consultant at <a href="http://sap.com">SAP</a>. Previously, I was a Software Development Engineer and Research Intern at <a href="http://runnr.in">Runnr</a>, which is now acquired by <a href="https://www.zomato.com">Zomato</a>.</p>
 
+<p>Outside of work, I like to dabble with machine learning, attend hackathons and build something that piques my interest.</p>
+
 <p>I'm also a Chapter Leader for <a href="http://isocblr.org">Internet Society India Bangalore</a>.</p>
 
 <p>I pass most of my leisure time with my Kindle PW3. I love read eastern manga and western comics. I do watch a lot of anime.</p>
