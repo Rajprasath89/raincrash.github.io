@@ -49,7 +49,7 @@ Social networks create emotional contagion. In connected groups, people tend to 
 
 
 
-Social networking sites encourage people to be more public about their personal lives. This comes with its own disadvantages. People tend to feel a false sense of connection. According to Steven Strogatz from Cornell University, “The distinction between genuine friends and ac- quaintances is becoming blurred. Users are spending time maintaining relationships with people they don?t really care about.”. [11] This immediacy might lead to cyber-bullying ? personal attacks, stalking, identity theft, and misuse of information. In a survey, 23% of teenagers report being targeted and 15% said they would have bullied someone on social media. Social media platforms can be misused to spread rumours, share videos aimed at destroying reputations and to blackmail others too. [12]
+Social networking sites encourage people to be more public about their personal lives. This comes with its own disadvantages. People tend to feel a false sense of connection. According to Steven Strogatz from Cornell University, “The distinction between genuine friends and ac- quaintances is becoming blurred. Users are spending time maintaining relationships with people they don't really care about.”. [11] This immediacy might lead to cyber-bullying - personal attacks, stalking, identity theft, and misuse of information. In a survey, 23% of teenagers report being targeted and 15% said they would have bullied someone on social media. Social media platforms can be misused to spread rumours, share videos aimed at destroying reputations and to blackmail others too. [12]
 
 
 ### Conclusion
