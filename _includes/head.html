@@ -28,6 +28,20 @@
 <!-- Place this tag in your head or just before your close body tag. -->
 
 
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBt285qOEdWZPtePiK4oTKSDUoJCvCGYZk",
+    authDomain: "raincrash-github-io.firebaseapp.com",
+    databaseURL: "https://raincrash-github-io.firebaseio.com",
+    projectId: "raincrash-github-io",
+    storageBucket: "raincrash-github-io.appspot.com",
+    messagingSenderId: "80941783055"
+  };
+  firebase.initializeApp(config);
+</script>
+
 
 {% if jekyll.environment == 'production' %}
 
@@ -42,3 +56,4 @@
 	</script>
 
 {% endif %}
+
